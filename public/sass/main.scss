@@ -1,2 +1,98 @@
 @import 'global';
 @import 'mixin';
+$color: #000 #333 #666 #2C3E50;
+$family: 'Microsoft YaHei';
+$width: 90% 75% 15%;
+
+html {
+	font-size: 62.5%;
+}
+
+a {
+	&,
+	&:hover {
+		text-decoration: none;
+	}
+
+}
+
+body {
+	color: nth($color, 2);
+	font: normal normal  1em/1.5 nth($family, 1);
+}
+
+.page-width {
+	width: nth($width, 1);
+	margin: auto;
+	@extend .clearfix;
+}
+
+.header {
+	background-color: nth($color, 4);
+}
+
+.logo {
+	@extend .fl;
+	font-size: 1.6em;
+	color: #fff;
+	font-weight: bold;
+	padding: 20px 10px;
+}
+
+.nav {
+	ul {
+		@extend .clearfix;
+	}
+
+	&,
+	li {
+		@extend .fl;
+	}
+
+	&,
+	a {
+		color: #fff;
+	}
+
+	a {
+		display: block;
+		padding: 20px 10px;
+	}
+
+	font-size: 1.6em;
+}
+
+//Body Layout
+.main-body {
+	@extend .clearfix;
+	margin-top: 2em;
+}
+
+.main-article {
+	@extend .fl;
+	width: nth($width, 2);
+}
+
+.main-aside {
+	@extend .fl;
+	width: nth($width, 3);
+}
+
+.main-title {
+	font-size: 3em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.main-list-title {
+	font-weight: bold;
+	font-size: 2em;
+}
+
+.article-info {
+	margin: 1em 0px;
+}
+
+.article-preview {
+	font-size: 1.4em;
+}

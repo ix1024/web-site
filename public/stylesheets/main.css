@@ -323,12 +323,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /*
 ** ========== 浮动 ==========
 */
-.clearfix:before, .clearfix:after { clear: both; content: '.'; display: block; height: 0; line-height: 0; overflow: hidden; }
-.clearfix { zoom: 1; }
+.clearfix:before, .page-width:before, .nav ul:before, .main-body:before, .clearfix:after, .page-width:after, .nav ul:after, .main-body:after { clear: both; content: '.'; display: block; height: 0; line-height: 0; overflow: hidden; }
+.clearfix, .page-width, .nav ul, .main-body { zoom: 1; }
 
 .clear { clear: both; height: 0; line-height: 0; overflow: hidden; }
 
-.fl { float: left; _display: inline; }
+.fl, .logo, .nav, .nav li, .main-article, .main-aside { float: left; _display: inline; }
 
 .fr { float: right; _display: inline; }
 
@@ -369,3 +369,33 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .fz-px-18 { font-size: 18px; }
 
 .fz-px-20 { font-size: 20px; }
+
+html { font-size: 62.5%; }
+
+a, a:hover { text-decoration: none; }
+
+body { color: #333; font: normal normal 1em/1.5 "Microsoft YaHei"; }
+
+.page-width { width: 90%; margin: auto; }
+
+.header { background-color: #2C3E50; }
+
+.logo { font-size: 1.6em; color: #fff; font-weight: bold; padding: 20px 10px; }
+
+.nav { font-size: 1.6em; }
+.nav, .nav a { color: #fff; }
+.nav a { display: block; padding: 20px 10px; }
+
+.main-body { margin-top: 2em; }
+
+.main-article { width: 75%; }
+
+.main-aside { width: 15%; }
+
+.main-title { font-size: 3em; font-weight: bold; text-align: center; }
+
+.main-list-title { font-weight: bold; font-size: 2em; }
+
+.article-info { margin: 1em 0px; }
+
+.article-preview { font-size: 1.4em; }
