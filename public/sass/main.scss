@@ -1,8 +1,8 @@
 @import 'global';
 @import 'mixin';
-$color: #000 #333 #666 #2C3E50;
+$color: #000 #333 #666 #999 #ccc #eee #2C3E50 #337ab7;
 $family: 'Microsoft YaHei';
-$width: 90% 75% 15%;
+$width: 80% 79% 19%;
 
 html {
 	font-size: 62.5%;
@@ -12,6 +12,11 @@ a {
 	&,
 	&:hover {
 		text-decoration: none;
+	}
+
+	&:hover {
+		@include transition(all 0.25s linear);
+		@include opacity(0.75)
 	}
 
 }
@@ -28,7 +33,7 @@ body {
 }
 
 .header {
-	background-color: nth($color, 4);
+	background-color: nth($color, 7);
 }
 
 .logo {
@@ -74,7 +79,7 @@ body {
 }
 
 .main-aside {
-	@extend .fl;
+	@extend .fr;
 	width: nth($width, 3);
 }
 
@@ -90,9 +95,37 @@ body {
 }
 
 .article-info {
-	margin: 1em 0px;
+	color: nth($color, 4);
 }
 
 .article-preview {
+	margin-top: 0.5em;
 	font-size: 1.4em;
+	color: nth($color, 3);
+}
+
+.article-link {
+	margin-bottom: 1em;
+	text-align: right;
+}
+
+.article-title {
+	font-size: 3em;
+}
+
+.article-content {
+	font-size: 1.6em;
+	margin-top: 2em;
+}
+
+.btn {
+	@extend .inline-block;
+	border-radius: 3px;
+}
+
+.btn-1 {
+	padding: 0.5em;
+	color: #fff;
+	background-color: nth($color, 8);
+	border: 1px solid nth($color, 8);
 }

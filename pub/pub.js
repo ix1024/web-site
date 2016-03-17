@@ -1,6 +1,15 @@
-var config = {
+var pub = {
+	substr: function(str, length, symbol) {
+		var _str = str || '',
+			_length = length || -1,
+			_symbol = symbol || '...';
+		if (_str && _str.length) {
+			_str = _str.slice(0, _length) + _symbol;
+		}
+		return _str;
+	},
 	navList: [{
-		url: '',
+		url: '/',
 		text: 'Home'
 	}, {
 		url: '',
@@ -16,4 +25,4 @@ var config = {
 		text: 'Sources'
 	}]
 };
-module.exports = config;
+module.exports = pub;

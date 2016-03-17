@@ -328,9 +328,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .clear { clear: both; height: 0; line-height: 0; overflow: hidden; }
 
-.fl, .logo, .nav, .nav li, .main-article, .main-aside { float: left; _display: inline; }
+.fl, .logo, .nav, .nav li, .main-article { float: left; _display: inline; }
 
-.fr { float: right; _display: inline; }
+.fr, .main-aside { float: right; _display: inline; }
 
 /*
 ** ========== 对齐 ==========
@@ -353,7 +353,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .no-resize { resize: none; }
 
-.inline-block { display: inline-block; *display: inline; *zoom: 1; }
+.inline-block, .btn { display: inline-block; *display: inline; *zoom: 1; }
 
 .user-select { -moz-user-select: none; /* firefox */ -webkit-user-select: none; /* webkit */ -ms-user-select: none; /* IE10 */ -khtml-user-select: none; /* old */ user-select: none; }
 
@@ -373,10 +373,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 html { font-size: 62.5%; }
 
 a, a:hover { text-decoration: none; }
+a:hover { -webkit-transition: all 0.25s linear; -moz-transition: all 0.25s linear; -ms-transition: all 0.25s linear; -o-transition: all 0.25s linear; transition: all 0.25s linear; opacity: 0.75; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity= 75 ); }
 
 body { color: #333; font: normal normal 1em/1.5 "Microsoft YaHei"; }
 
-.page-width { width: 90%; margin: auto; }
+.page-width { width: 80%; margin: auto; }
 
 .header { background-color: #2C3E50; }
 
@@ -388,14 +389,24 @@ body { color: #333; font: normal normal 1em/1.5 "Microsoft YaHei"; }
 
 .main-body { margin-top: 2em; }
 
-.main-article { width: 75%; }
+.main-article { width: 79%; }
 
-.main-aside { width: 15%; }
+.main-aside { width: 19%; }
 
 .main-title { font-size: 3em; font-weight: bold; text-align: center; }
 
 .main-list-title { font-weight: bold; font-size: 2em; }
 
-.article-info { margin: 1em 0px; }
+.article-info { color: #999; }
 
-.article-preview { font-size: 1.4em; }
+.article-preview { margin-top: 0.5em; font-size: 1.4em; color: #666; }
+
+.article-link { margin-bottom: 1em; text-align: right; }
+
+.article-title { font-size: 3em; }
+
+.article-content { font-size: 1.6em; margin-top: 2em; }
+
+.btn { border-radius: 3px; }
+
+.btn-1 { padding: 0.5em; color: #fff; background-color: #337ab7; border: 1px solid #337ab7; }

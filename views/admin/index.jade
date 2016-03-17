@@ -1,0 +1,12 @@
+extends layout
+block link
+	link(rel="stylesheet", href="/javascripts/plugins/kindeditor-4.1.10/themes/default/default.css")
+block content
+	form(action="/admin/add",method="post")
+		input(type="text",name="title")
+		textarea(name="content", cols="30", rows="10")
+		input(type="submit",value="asdf")
+block scripts
+	//script(src="/javascripts/plugins/kindeditor-4.1.10/kindeditor-min.js")
+	script(src="/javascripts/lib/require.min.js")
+	script(src="/javascripts/require-config.js")
