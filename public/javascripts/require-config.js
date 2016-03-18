@@ -16,6 +16,8 @@ requirejs.config({
 requirejs(['jquery', 'kindeditor'], function($, KindEditor) {
 
 	var editor = KindEditor.create('textarea[name="content"]', {
+		width: '400px',
+		height: '200px',
 		allowFileManager: true
 	});
 });
