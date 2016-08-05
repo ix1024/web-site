@@ -4,15 +4,38 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('./mongoose');
 
-var routes = {
-  index: require('./routes/index'),
-  admin: require('./routes/admin')
-};
-var route = require('./routes/index');
+var routes = require('./routes/index');
 var users = require('./routes/users');
+var demo = require('./routes/demo');
+
+//后台
+var admin = require('./routes/admin/admin');
 
 var app = express();
+
+//Session
+// app.use(require('express-session')({
+//   key: 'session',
+//   secret: 'SUPER SECRET SECRET',
+//   store: require('mongoose-session')(mongoose)
+// }));
+
+
+var Store = require('express-session').Store;
+var MongooseStore = require('mongoose-express-session')(Store);
+
+app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    rolling: false,
+    saveUninitialized: true,
+    store: new MongooseStore({
+      connection:mongoose
+        /* configuration */
+    })
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,9 +51,12 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes.index);
-app.use('/admin', routes.admin);
+app.use('/', routes);
 app.use('/users', users);
+app.use('/demo', demo);
+
+//后台
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

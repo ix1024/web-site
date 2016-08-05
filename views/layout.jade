@@ -3,8 +3,8 @@ html
 	head
 		title= title
 		link(rel='stylesheet', href='/stylesheets/main.css')
-		block link
 	body
-		include header
 		block content
+		script(src="/javascripts/src/lib/require.js")
+		script(src="/javascripts/src/config/requirejs-config.js")
 		block scripts

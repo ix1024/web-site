@@ -1,38 +1,70 @@
 var express = require('express');
 var router = express.Router();
-var pub = require('../pub/pub');
-var db = require('../pub/db');
+var mongoose = require('mongoose');
+var config = require('../config');
+var response = config.response;
+var Schema = mongoose.Schema,
+	ObjectId = Schema.ObjectId;
 
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+	console.log('open');
+});
+
+var Article = db.model('Article', {});
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	db.find('documents', {}, function(docs) {
-		//res.send(docs);
-		res.render('index', {
-			title: 'Express',
-			pub: pub,
-			articleList: docs
-		});
-	}, function(err) {
-		res.send(err);
-	});
 
-});
-router.get('/article-detail', function(req, res, next) {
-	var id = req.query.id;
-	console.log(id);
-	//res.send({})
-	db.find('documents', {
-		_id: db.ObjectID(id)
-	}, function(docs) {
-		//res.send(docs[0]);
-		res.render('article-detail', {
-			title: 'Express',
-			pub: pub,
-			doc: docs[0]
+
+	var count = function() {
+		return new Promise(function(resolve, reject) {
+			Article.count({}, function(err, num) {
+				//console.log(num);
+				if (err) {
+					reject(err);
+				} else {
+					resolve(num);
+				}
+
+			});
 		});
-	}, function(err) {
-		res.send(err);
-	});
+	};
+	var find = function() {
+		return new Promise(function(resolve, reject) {
+			Article.find({}, function(err, docs) {
+				if (err) {
+					reject(err);
+				} else {
+					resolve(docs);
+				}
+			});
+		});
+	};
+
+	var result = function() {
+		return Promise.all([
+			count(),
+			find()
+		]);
+	};
+	result()
+		.then(function(data) {
+			//console.log(data[0], data[1]);
+			//res.send(data);
+			res.render('index', {
+				title: 'Express',
+				data: {
+					user: req.session.user || '',
+					articelCount: data[0],
+					articelList: data[1]
+				}
+			});
+		})
+		.catch(function(reason) {
+			console.log(reason);
+		});
+
 
 });
 

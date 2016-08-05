@@ -1,18 +1,61 @@
 @import 'global';
 @import 'mixin';
 
-.form-ul {
-	li {
-		margin: 10px 0;
+.table {
+	width: 100%;
+
+	td,
+	th {
+		padding: 5px;
+	}
+
+	th {
+		text-align: center;
+		font-weight: bold;
+		background-color: #f9f9f9;
+	}
+
+	td,
+	th {
+		border-color: #e2e7eb;
+		border-width: 1px;
+		border-style: solid;
+	}
+
+	.even {
+		background-color: #f9f9f9;
+	}
+
+	.odd {
+		background-color: #fff;
 	}
 
 }
 
-.admin-input {
-	width: 400px;
-	padding: 5px;
-}
+.add-article-table {
+	th,
+	td {
+		&:nth-child(1) {
+			width: 10%;
+		}
 
-.admin-textarea {
-	width: 200px;
+		&:nth-child(2) {
+			width: 10%;
+		}
+
+		&:nth-child(3) {
+			//width: 10%;
+		}
+
+		&:nth-child(4) {
+			width: 20%;
+		}
+
+		&:nth-child(5) {
+			width: 10%;
+			text-align: center;
+		}
+
+	}
+
 }

@@ -1,3 +1,16 @@
 extends layout
 block content
-	include main
+	div
+		div 
+			ul(class="article-list")
+				- for(var articleIndex =0; articleIndex < data.articelList.length; articleIndex++)
+					- var articleItem = data.articelList[articleIndex];
+					li
+						div(class="img")
+							img(src="https://2.bp.blogspot.com/-pAkyABlSI9I/V5Vb3h5bgGI/AAAAAAAAEEg/03XLR_fUHfciuaylJJCi1GxDG2Lw9WqVwCLcB/s320/couper.jpg", alt="")
+						h1(class="title")=articleItem.title
+						div(class="info")=articleItem.date
+						div(class="content")=articleItem.body
+block scripts
+	script(src="/javascripts/src/index.js")
+
