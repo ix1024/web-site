@@ -1,0 +1,23 @@
+extends ../admin-layout
+block content
+	div(class="admin-main")
+		table(class="table add-article-table")
+			thead
+				tr
+					th title
+					th author
+					th body
+					th date
+					th edit
+			tbody
+				-for(var item=0; item<list.length; item++)
+					tr(id=list[item]._id)
+						td=(list[item].title||'')
+						td=list[item].author
+						td=fn.slice(list[item].body,50)
+						td=new Date(list[item].date)
+						td
+							span(class="btn btn-1") 编辑
+							span(class="btn btn-1") 删除	 
+block scripts
+	script(src="/javascripts/src/admin.js")

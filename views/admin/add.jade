@@ -1,30 +1,14 @@
 extends ../admin-layout
-block content
-	table(class="table add-article-table")
-		thead
-			tr
-				th title
-				th author
-				th body
-				th date
-				th edit
-		tbody
-			-for(var item=0; item<list.length; item++)
-				tr(id=list[item]._id)
-					td=(list[item].title||'')
-					td=list[item].author
-					td=list[item].body
-					td=new Date(list[item].date)
-					td
-						span 编辑
-						span 删除
-	div 
-		form(action="/admin/add",method="post")
-			li
-				input(name="title",type="text")
-			li
-				textarea(name="body", cols="30", rows="10")
-			li
-				button submit
+block content		
+	div(class="add-list admin-main")
+		form(class="form-group",action="/admin/add",method="post")
+			ul(class="form-group-list")
+				li(class="form-group-item")
+					input(class="input",name="title",type="text")
+				li(class="form-group-item")
+					textarea(class="textarea",name="body", cols="30", rows="10")
+				li(class="form-group-item")
+					div(class="btn-box")
+						button(class="btn btn-1") submit
 block scripts
 	script(src="/javascripts/src/admin.js")

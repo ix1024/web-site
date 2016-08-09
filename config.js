@@ -1,11 +1,14 @@
 'use strict';
 
 var config = {
-
+	site: {
+		name: '前端实验室',
+		host: ''
+	},
 	response: function(options) {
 		var Response = function(options) {
 			var ops = options || {};
-			this.result = '';
+			this.result = null;
 			this.status = '00000';
 			this.time = new Date().getTime();
 			for (var key in ops) {
@@ -25,6 +28,11 @@ var config = {
 					'20000': '保存失败',
 					'20001': '删除失败',
 					'20002': '更新失败',
+					/* 登录 */
+					'30001': '登录失败',
+					'30002': '用户名不对',
+					'30003': '密码失败',
+					'30004': '用户名已经存在',
 				}[key] || '';
 			},
 			toString: function() {

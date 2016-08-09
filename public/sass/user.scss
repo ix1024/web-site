@@ -1,0 +1,55 @@
+@import 'global';
+@import 'mixin';
+
+html,
+body {
+	background-color: #207c88;
+}
+
+.login-box,
+.register-box {
+	width: 400px;
+	padding: 0;
+	margin: 20px auto;
+	background-color: #fff;
+
+	.header {
+		padding: 20px;
+		text-align: center;
+		background-color: #004977;
+		color: #fff;
+		font-size: 30px;
+	}
+
+	.input,
+	.textarea {
+		width: 200px;
+	}
+
+	.input {
+		padding: 0 10px;
+	}
+
+	.textarea {
+		padding: 10px;
+	}
+
+}
+
+.login-box {
+	label {
+		display: inline-block;
+		width: 100px;
+		text-align: right;
+	}
+
+	label,
+	input {
+		vertical-align: middle;
+	}
+
+	.form-group {
+		padding: 50px 0;
+	}
+
+}

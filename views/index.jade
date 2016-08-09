@@ -1,16 +1,23 @@
 extends layout
-block content
-	div
-		div 
+block content			
+	include _header
+	div.wrap
+		div.main
 			ul(class="article-list")
 				- for(var articleIndex =0; articleIndex < data.articelList.length; articleIndex++)
 					- var articleItem = data.articelList[articleIndex];
+					- var url = '/article/'+articleItem._id
 					li
 						div(class="img")
-							img(src="https://2.bp.blogspot.com/-pAkyABlSI9I/V5Vb3h5bgGI/AAAAAAAAEEg/03XLR_fUHfciuaylJJCi1GxDG2Lw9WqVwCLcB/s320/couper.jpg", alt="")
+							img(src="/images/logo_JavaScript.png", alt="")
 						h1(class="title")=articleItem.title
 						div(class="info")=articleItem.date
-						div(class="content")=articleItem.body
+						div(class="content")=fn.slice(articleItem.body,400)
+						div(class="view")
+							a(href=url,class="btn btn-1",target="_blank") 查看全文
+		div.aside
+			include _article
+	include _footer
 block scripts
 	script(src="/javascripts/src/index.js")
 

@@ -1,0 +1,81 @@
+@import 'varliable';
+$mainWidth: 80%;
+$asideWidth: 20%;
+$headerHeight: 50px;
+
+//layout
+.header {
+	height: $headerHeight;
+	background-color: $mainColor;
+
+	strong {
+		@extend .fl;
+		height: $headerHeight;
+		line-height: $headerHeight;
+		margin-left: 20px;
+	}
+
+}
+
+.footer {
+	text-align: center;
+	padding: 30px 20px 50px 20px;
+	color: #eee;
+	background-color: $mainColor;
+}
+
+.wrap {
+	@extend .clearfix;
+	min-height: 800px;
+}
+
+.main {
+	@extend .fl;
+	width: $mainWidth;
+}
+
+.aside {
+	@extend .fr;
+	width: $asideWidth;
+}
+
+.header {
+	color: #fff;
+
+	h1 {
+		strong {
+			font-size: 20px;
+		}
+
+	}
+
+}
+
+.nav {
+	@extend .clearfix;
+	@extend .fr;
+
+	li.nav-item {
+		@extend .fl;
+	}
+
+	li.nav-item,
+	a {
+		height: $headerHeight;
+		line-height: $headerHeight;
+	}
+
+	a {
+		display: block;
+		color: #fff;
+		font-size: 16px;
+		padding: 0 10px;
+
+		&:hover {
+			//opacity: 1;
+			background-color: #3577A3;
+		}
+
+	}
+
+}

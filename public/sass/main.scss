@@ -1,37 +1,34 @@
 @import 'global';
 @import 'mixin';
+@import 'layout';
+@import 'article';
 
-.article-list {
-	padding: 0 10px;
+body {
+	//background-color: #ECECEC;
+}
 
-	li {
-		border-bottom: 1px solid #eee;
-		margin-bottom: 00px;
-		padding: 10px 0;
-		@extend .clearfix;
+.wrap {
+	margin: 10px;
+}
+
+.main {
+	background-color: #fff;
+}
+
+//404
+.error {
+	text-align: center;
+
+	strong {
+		font-size: 40px;
 	}
 
-	.img {
-		@extend .fl;
-		margin-right: 20px;
-
-		img,
-		& {
-			width: 200px;
-			height: 200px;
-		}
-
-	}
-
-	.title {
-		font-weight: bold;
-		font-size: 23px;
-		color: #444;
-	}
-
-	.content {
-		color: #666;
-		font-size: 12px;
+	pre {
+		width: 60%;
+		border: 1px solid #ccc;
+		border-radius: $radius;
+		padding: 30px;
+		margin: auto;
 	}
 
 }

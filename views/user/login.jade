@@ -1,0 +1,15 @@
+extends layout
+block content
+	div(class="login-box ")
+		div(class="header") Login
+		div(class="form-group")
+			ul(class="form-list")
+				li(class="form-group-item")
+					label(for="") 用户名：
+					input(class="input",type="text",name="userName")
+				li(class="form-group-item")
+					label(for="") 密码：
+					input(class="input",type="password",name="password")
+				li(class="form-group-item")
+					label(for="") 
+					input(class="input",type="submit", value="提交",id="loginSubmit")

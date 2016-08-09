@@ -4,9 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose = require('./mongoose');
-
+var mongoose = require('mongoose');
+var config = require('./config');
 var routes = require('./routes/index');
+var article = require('./routes/article');
 var users = require('./routes/users');
 var demo = require('./routes/demo');
 
@@ -21,7 +22,7 @@ var app = express();
 //   secret: 'SUPER SECRET SECRET',
 //   store: require('mongoose-session')(mongoose)
 // }));
-
+mongoose.connect('mongodb://localhost/kingwell');
 
 var Store = require('express-session').Store;
 var MongooseStore = require('mongoose-express-session')(Store);
@@ -52,6 +53,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/article', article);
 app.use('/users', users);
 app.use('/demo', demo);
 
@@ -73,6 +75,7 @@ if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
+      title:config.site.name,
       message: err.message,
       error: err
     });

@@ -1,12 +1,182 @@
 @import 'global';
 @import 'mixin';
 
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+	background-color: #eee;
+}
+
+.input,
+.textarea {
+	border: 1px solid #ccc;
+	border-radius: $radius;
+}
+
+.textarea {
+}
+
+//admin
+.admin-header {
+	height: 50px;
+	line-height: 50px;
+	background-color: #fff;
+	box-shadow: 0 1px 0 #ccc;
+	vertical-align: middle;
+
+	img {
+		width: 30px;
+		height: 30px;
+		margin-left: 20px;
+	}
+
+	a,
+	img,
+	span {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+}
+
+.user-box {
+	img {
+		border-radius: 50%;
+	}
+
+	img,
+	span {
+		display: inline-block;
+		margin: 0 5px;
+		vertical-align: middle;
+	}
+
+}
+
+.admin-aside {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 200px;
+	height: 100%;
+	margin-top: 50px;
+	background-color: #333;
+
+	.tab-selected-source {
+		background-color: #666;
+	}
+
+	a {
+		display: block;
+		color: #fff;
+		font-size: 14px;
+		line-height: 30px;
+		padding: 0 10px;
+	}
+
+}
+
+.admin-main {
+	padding: 20px;
+	margin: 20px;
+	background-color: #fff;
+
+	li,
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		list-style-type: none;
+	}
+
+}
+
+.admin-content {
+	margin-left: 200px;
+}
+
+//
+$tabHeight: 40px;
+
+.tab-win-box {
+	height: $tabHeight;
+	border-bottom: 1px solid #ccc;
+	@extend .clearfix;
+
+	li,
+	span {
+		height: $tabHeight;
+		line-height: $tabHeight;
+	}
+
+	.tab-hover {
+		.tab-del {
+			display: block;
+		}
+
+	}
+
+	.tab-del {
+		display: none;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		margin-top: -10px;
+		width: $tabHeight/2;
+		height: $tabHeight/2;
+		line-height: $tabHeight/2;
+		text-align: center;
+		background-color: #eee;
+		border-radius: 50%;
+		cursor: pointer;
+	}
+
+	.tab-select {
+		span {
+			background-color: #333;
+			color: #fff;
+		}
+
+	}
+
+	li {
+		@extend .fl;
+		position: relative;
+
+		span {
+			display: block;
+			cursor: pointer;
+			padding: 0 30px;
+			background-color: #eee;
+			border-right: 1px solid #ccc;
+		}
+
+	}
+
+}
+
+.tab-win-iframe {
+	iframe {
+		width: 100%;
+		min-height: 500px;
+	}
+
+}
+
+.tab-select-source {
+	background-color: #fff;
+}
+
+//
 .table {
 	width: 100%;
 
 	td,
 	th {
-		padding: 5px;
+		padding: 10px;
 	}
 
 	th {
@@ -56,6 +226,25 @@
 			text-align: center;
 		}
 
+	}
+
+}
+
+.add-list {
+	.form-group-list {
+		width: 528px;
+		margin: auto;
+	}
+
+	.input {
+		width: 500px;
+		height: 40px;
+		padding: 0 10px;
+	}
+
+	.textarea {
+		width: 500px;
+		padding: 10px 10px;
 	}
 
 }

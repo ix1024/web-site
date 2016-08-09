@@ -1,15 +1,23 @@
-﻿@import 'compass/reset';
+@import 'compass/reset';
 @import 'mixin';
 @import 'width';
 @import 'margin-padding';
+@import 'varliable';
 
-body {
-	font-family: Arial;
-	font-size: 14px;
+.transition {
+	@include transition(all 0.25s linear);
 }
 
+.transition-color {
+}
+
+.transition-bg {
+}
+
+@import 'btn';
+
 /*
-** ========== 浮动 ==========
+** ==========  ==========
 */
 .clearfix {
 	@include clearfix;
@@ -98,4 +106,43 @@ body {
 
 .fz-px-20 {
 	font-size: 20px;
+}
+
+body {
+	//	font-family:;
+	font-size: 14px;
+	font: normal normal 12px/1.5 Arial, 'Microsoft YaHei'
+}
+
+a {
+	text-decoration: none;
+	@extend .transition;
+}
+
+textarea {
+	resize: none;
+}
+
+.form-group {
+	.form-group-list {
+	}
+
+	.form-group-item {
+		margin: 10px 0;
+	}
+
+	.btn-box {
+		text-align: right;
+	}
+
+	.btn {
+		padding: 10px 20px;
+		font-size: 14px;
+	}
+
+	.input,
+	.textarea {
+		//width: 100%;
+	}
+
 }

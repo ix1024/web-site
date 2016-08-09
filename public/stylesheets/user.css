@@ -452,14 +452,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /*
 ** ==========  ==========
 */
-.clearfix:before, .wrap:before, .nav:before, .article-list li:before, .clearfix:after, .wrap:after, .nav:after, .article-list li:after { clear: both; content: '.'; display: block; height: 0; line-height: 0; overflow: hidden; }
-.clearfix, .wrap, .nav, .article-list li { zoom: 1; }
+.clearfix:before, .clearfix:after { clear: both; content: '.'; display: block; height: 0; line-height: 0; overflow: hidden; }
+.clearfix { zoom: 1; }
 
 .clear { clear: both; height: 0; line-height: 0; overflow: hidden; }
 
-.fl, .header strong, .main, .nav li.nav-item, .article-list .img { float: left; _display: inline; }
+.fl { float: left; _display: inline; }
 
-.fr, .aside, .nav { float: right; _display: inline; }
+.fr { float: right; _display: inline; }
 
 /*
 ** ========== 瀵归綈 ==========
@@ -509,47 +509,14 @@ textarea { resize: none; }
 .form-group .btn-box { text-align: right; }
 .form-group .btn { padding: 10px 20px; font-size: 14px; }
 
-.header { height: 50px; background-color: #314D68; }
-.header strong { height: 50px; line-height: 50px; margin-left: 20px; }
+html, body { background-color: #207c88; }
 
-.footer { text-align: center; padding: 30px 20px 50px 20px; color: #eee; background-color: #314D68; }
+.login-box, .register-box { width: 400px; padding: 0; margin: 20px auto; background-color: #fff; }
+.login-box .header, .register-box .header { padding: 20px; text-align: center; background-color: #004977; color: #fff; font-size: 30px; }
+.login-box .input, .login-box .textarea, .register-box .input, .register-box .textarea { width: 200px; }
+.login-box .input, .register-box .input { padding: 0 10px; }
+.login-box .textarea, .register-box .textarea { padding: 10px; }
 
-.wrap { min-height: 800px; }
-
-.main { width: 80%; }
-
-.aside { width: 20%; }
-
-.header { color: #fff; }
-.header h1 strong { font-size: 20px; }
-
-.nav li.nav-item, .nav a { height: 50px; line-height: 50px; }
-.nav a { display: block; color: #fff; font-size: 16px; padding: 0 10px; }
-.nav a:hover { background-color: #3577A3; }
-
-.article-list { padding: 0 10px; }
-.article-list li { border-bottom: 1px solid #eee; padding: 20px 0; }
-.article-list .img { margin-right: 20px; }
-.article-list .img img, .article-list .img { width: 200px; height: 200px; }
-.article-list .title { font-weight: bold; font-size: 23px; color: #444; }
-.article-list .content { color: #666; font-size: 12px; line-height: 2; }
-.article-list .info { color: #999; margin: 5px 0; }
-.article-list .view { text-align: right; margin-top: 10px; }
-
-.article-wrap { padding: 40px 50px 100px 50px; }
-
-.article-title { font-size: 35px; text-align: center; margin: 10px; color: #000; }
-
-.article-content { margin-top: 20px; line-height: 2; color: #555; font-size: 14px; }
-
-.article-info { color: #999; padding: 5px 0; border-bottom: 1px #ddd dashed; }
-.article-info strong { margin-right: 10px; }
-.article-info span { margin-right: 5px; }
-
-.wrap { margin: 10px; }
-
-.main { background-color: #fff; }
-
-.error { text-align: center; }
-.error strong { font-size: 40px; }
-.error pre { width: 60%; border: 1px solid #ccc; border-radius: 3px; padding: 30px; margin: auto; }
+.login-box label { display: inline-block; width: 100px; text-align: right; }
+.login-box label, .login-box input { vertical-align: middle; }
+.login-box .form-group { padding: 50px 0; }

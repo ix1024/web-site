@@ -1,0 +1,17 @@
+extends layout
+block content			
+	include _header
+	div.wrap		 
+		div(class="article-wrap")
+			div(class="article-title")=data.result[0].title
+			div(class="article-info")
+				span 作者：
+				strong=data.result[0].author
+				span 日期：
+				strong=fn.getDateString(data.result[0].date)
+				span   阅读：
+				strong=strong=data.result[0].read
+			div(class="article-content")=data.result[0].body		 
+	include _footer
+block scripts
+	script(src="/javascripts/src/index.js")

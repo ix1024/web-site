@@ -1,0 +1,19 @@
+extends layout
+block content
+	div(class="register-box")
+		div(class="header") Login
+		div(class="form-group")
+			form(action="",method="post")
+				ul
+					li(class="form-group-item")
+						input(class="input",type="text",name="userName")
+					li(class="form-group-item")
+						input(class="input",type="text",name="password")
+					li(class="form-group-item")
+						input(class="input",type="text",name="sex")
+					li(class="form-group-item")
+						input(class="input",type="text",name="age")
+					li(class="form-group-item")
+						input(class="input",type="text",name="email")
+					li(class="form-group-item")
+						input(class="input",type="submit", value="提交",id="registerSubmmit")

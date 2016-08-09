@@ -1,39 +1,46 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
 var config = require('../../config');
+var response = config.response;
+var fn = require('../../fn');
+
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema,
 	ObjectId = Schema.ObjectId;
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function(a, b, c) {});
 
-var response = config.response;
 
-var BlogPost = new Schema({
-	id: ObjectId,
-	author: {
-		type: String,
-		default: 'admin'
-	},
-	title: String,
-	body: String,
-	image: {
-		type: String,
-		default: ''
-	},
-	date: {
-		type: Date,
-		default: Date.now
+var Article = require('../../routes/model/acticle'); //mongoose.model('Article', {});
+var User = require('../../routes/model/user'); //mongoose.model('Article', {});
+
+router.all('*', function(req, res, next) {
+	console.log('req.session.user', req.session.user);
+	if (req.session.user) {
+		next();
+	} else {
+		res.redirect('/users/login');
 	}
 });
 
-
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var Article = db.model('Article', BlogPost);
+
+	res.render('admin/home', {
+		user: req.session.user,
+		title: 'admin'
+	});
+
+});
+router.get('/user-list', function(req, res, next) {
+
+	res.render('admin/user', {
+		title: 'admin'
+	});
+
+});
+router.get('/list', function(req, res, next) {
+
+	// res.send({});
 	var count = function() {
 		return new Promise(function(resolve, reject) {
 			Article.count({}, function(err, num) {
@@ -82,8 +89,9 @@ router.get('/', function(req, res, next) {
 	result()
 		.then(function(data) {
 			//console.log(data);
-			res.render('admin/add', {
+			res.render('admin/list', {
 				title: 'Express',
+				fn: fn,
 				list: data[1]
 			});
 		})
@@ -91,19 +99,22 @@ router.get('/', function(req, res, next) {
 			console.log(reason);
 		});
 
-
-
 });
-
+router.get('/index', function(req, res, next) {
+	//res.redirect('/admin');
+	//res.send('5555');
+	res.render('admin/index');
+});
 router.get('/add', function(req, res, next) {
-	res.redirect('/admin');
+	//res.redirect('/admin');
+	res.render('admin/add');
 });
 
 //删除
 router.get('/delete', function(req, res, next) {
 	var id = req.query.id;
 	console.log(id);
-	var Article = db.model('Article', BlogPost);
+
 	Article.remove({
 		_id: id
 	}, function(error) {
@@ -131,8 +142,9 @@ router.post('/add', function(req, res, next) {
 	var title = req.body.title || '';
 	var body = req.body.body || '';
 
-	var Article = db.model('Article', BlogPost);
+	//var Article = db.model('Article', BlogPost);
 	var article = new Article({
+		author: req.session.user,
 		title: req.body.title,
 		body: req.body.body,
 	});
@@ -159,5 +171,6 @@ router.post('/add', function(req, res, next) {
 	res.send(response(rs));
 
 });
+
 
 module.exports = router;

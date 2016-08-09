@@ -1,0 +1,13 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/user.css')
+	body
+		block content
+		script(src="/javascripts/src/lib/require.js")
+		script(src="/javascripts/src/config/requirejs-config.js")
+		//script(src="/javascripts/src/user.js")
+		script
+			| require(['user']);
+		block scripts

@@ -1,9 +1,11 @@
-require(['jquery'], function($) {
+require(['jquery', 'tab'], function($, tab) {
+	$('body').win();
+	//删除文章
 	$('table').on('click', 'span', function() {
 		var $tr = $(this).parents('tr');
 		var id = $tr.attr('id');
 		$.ajax({
-			url: 'admin/delete',
+			url: 'delete',
 			data: {
 				id: id
 			},
@@ -16,4 +18,6 @@ require(['jquery'], function($) {
 			error: function() {}
 		});
 	});
+
+	//设置 大小 
 });
