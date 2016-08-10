@@ -1,4 +1,5 @@
 define(['jquery'], function($) {
+	
 	$('#loginSubmit').on('click', function() {
 		$.ajax({
 			url: 'get-login',
@@ -6,8 +7,12 @@ define(['jquery'], function($) {
 				userName: $('[name="userName"]').val(),
 				password: $('[name="password"]').val()
 			},
-			success: function() {
+			success: function(data) {
+				if (data && data.status === '00000') {
+					window.location.href = '/admin';
+				} else {
 
+				}
 			},
 			error: function() {
 

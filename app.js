@@ -10,6 +10,7 @@ var routes = require('./routes/index');
 var article = require('./routes/article');
 var users = require('./routes/users');
 var demo = require('./routes/demo');
+var lib = require('./routes/lib');
 
 //后台
 var admin = require('./routes/admin/admin');
@@ -28,14 +29,14 @@ var Store = require('express-session').Store;
 var MongooseStore = require('mongoose-express-session')(Store);
 
 app.use(require('express-session')({
-    secret: 'keyboard cat',
-    resave: false,
-    rolling: false,
-    saveUninitialized: true,
-    store: new MongooseStore({
-      connection:mongoose
-        /* configuration */
-    })
+  secret: 'keyboard cat',
+  resave: false,
+  rolling: false,
+  saveUninitialized: true,
+  store: new MongooseStore({
+    connection: mongoose
+      /* configuration */
+  })
 }));
 
 // view engine setup
@@ -52,13 +53,20 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//退出登录
+app.use('/logout', function(req, res, next) {
+  req.session.user = null;
+  res.redirect('/admin');
+});
+
 app.use('/', routes);
 app.use('/article', article);
-app.use('/users', users);
-app.use('/demo', demo);
-
 //后台
 app.use('/admin', admin);
+app.use('/', lib);
+app.use('/', users);
+app.use('/demo', demo);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -75,7 +83,7 @@ if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
-      title:config.site.name,
+      title: config.site.name,
       message: err.message,
       error: err
     });

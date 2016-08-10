@@ -109,5 +109,8 @@ router.post('/register', function(req, res, next) {
 	}
 
 });
-
+// router.get('/logout', function(req, res, next) {
+// 	console.log(0);
+// 	req.session = null;
+// });
 module.exports = router;
