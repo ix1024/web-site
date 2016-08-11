@@ -8,6 +8,7 @@ block content
 					th author
 					th body
 					th date
+					th update
 					th edit
 			tbody
 				-for(var item=0; item<list.length; item++)
@@ -16,9 +17,10 @@ block content
 							a(href='/article/'+list[item]._id,target="_blank")=(list[item].title||'')
 						td=list[item].author
 						td=utils.slice(list[item].body,50)
-						td=new Date(list[item].date)
+						td=utils.getDateString(list[item].date)
+						td=utils.getDateString(list[item].updateDate)
 						td
-							span(class="btn btn-1") 编辑
+							a(class="btn btn-1",href="/admin/add?id="+list[item]._id) 编辑
 							span(class="btn btn-1") 删除	 
 block scripts
 	script(src="/javascripts/src/admin.js")

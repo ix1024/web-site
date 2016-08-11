@@ -11,7 +11,12 @@ block content
 				strong=utils.getDateString(data.result[0].date)
 				span   阅读：
 				strong=strong=data.result[0].read+1
-			div(class="article-content")=data.result[0].body		 
+			div(class="article-content")!=data.result[0].body		 
 	include _footer
+	script(src="/plugins/shBrushJScript/shCore.js")
+	script(src="/plugins/shBrushJScript/shBrushJScript.js")
 block scripts
-	script(src="/javascripts/src/index.js")
+	link(rel="stylesheet", href="/plugins/shBrushJScript/shCore.css")
+	link(rel="stylesheet", href="/plugins/shBrushJScript/shCoreDefault.css")
+	
+	script(src="/javascripts/src/article.js")

@@ -1,6 +1,6 @@
 /*
   Requirejs配置文件
-  Last Updated:2016-08-10 09:08:29  
+  Last Updated:2016-08-11 04:08:43  
 */
 var fileVersion = {
     'require-text': '//static.huizecdn.com/js/plugins/require-text/text.min',
@@ -14,7 +14,8 @@ var fileVersion = {
     'my-calendar':'//static.huizecdn.com/js/plugins/my-calendar/build/my-calendar.min',
     'message':'//static.huizecdn.com/js/plugins/message/build/message',
     'webuploader':'http://static.huizecdn.com/js/plugins/webuploader/webuploader',
-    "admin": "/javascripts/src/admin.js?v=5f535a665bb73baa9508523129c2fa6d",
+    "admin": "/javascripts/src/admin.js?v=3dceb6b3670dce13eb8795fec298d299",
+    "article": "/javascripts/src/article.js?v=d41d8cd98f00b204e9800998ecf8427e",
     "demo": "/javascripts/src/demo.js?v=53174a48ba549c9ded0832486ed61461",
     "index": "/javascripts/src/index.js?v=d41d8cd98f00b204e9800998ecf8427e",
     "ajax": "/javascripts/src/kw/ajax.js?v=7afe35bd5fcb72c486f34eb84f61f9be",
@@ -29,5 +30,5 @@ var fileVersion = {
     "require": "/javascripts/src/lib/require.js?v=6bd2f88aafdbf67d47f03d6eac64ddc7",
     "underscore": "/javascripts/src/lib/underscore.js?v=f893e294cde60c2462cb19b35aac431b",
     "tab": "/javascripts/src/tab.js?v=2b57809116f97ef13e66762bc79cda30",
-    "user": "/javascripts/src/user.js?v=80ac865283a10942ebde162cb6a68207"
+    "user": "/javascripts/src/user.js?v=84b641748d88decb3f6e86808c6345e3"
 };

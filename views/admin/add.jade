@@ -1,20 +1,28 @@
 extends ../admin-layout
 block content		
 	div(class="add-list admin-main")
-		form(class="form-group",action="/admin/add",method="post")
+		div(class="form-group",action="/admin/add",method="post")
+			- var data = locals.data||[];
 			ul(class="form-group-list")
 				li(class="form-group-item")
 					select(name="classification")
-						- for(n=0;n<nav.length;n++)
-							option(value=nav[n])=nav[n]
+						- for(n=0;n<classification.length;n++)
+							option(value=classification[n])=classification[n]
 				li(class="form-group-item")
-					input(class="input",name="title",type="text")
+					input(class="input",name="title",type="text",value=data.title)
 				li(class="form-group-item")
-					textarea(class="textarea",name="body", cols="30", rows="10")
+					textarea(class="textarea",name="body", cols="30", rows="10")!= data.body
 				li(class="form-group-item")
-					input(class="input",name="tag",type="text")
+					input(class="input",name="tag",type="text",value=data.tag)
 				li(class="form-group-item")
 					div(class="btn-box")
-						button(class="btn btn-1") submit
+						-
+						if editType
+							button(class="btn btn-1",data-type="update",data-id=editType) 保存
+						else
+							button(class="btn btn-1",data-type="submit") 提交
 block scripts
+	link(rel="stylesheet", href="/plugins/kindeditor-4.1.1/themes/default/default.css")
+	script(src="/plugins/kindeditor-4.1.1/kindeditor-min.js")
+	script(src="/plugins/kindeditor-4.1.1/lang/zh_CN.js")
 	script(src="/javascripts/src/admin.js")

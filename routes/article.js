@@ -4,15 +4,11 @@ var mongoose = require('mongoose');
 var config = require('../config');
 var utils = require('npm-utils-kingwell');
 var response = config.response;
-var Schema = mongoose.Schema,
-	ObjectId = Schema.ObjectId;
 
-//var Article = require('../acticle'); //mongoose.model('Article', {});
-var Article = require('../routes/model/acticle'); 
+var Article = require('../routes/model/acticle');
 /* GET home page. */
 router.get('/:id', function(req, res, next) {
-	//console.log(req.params);
-	//res.send({name:req.params.id});
+
 	var id = req.params.id;
 	var count = function() {
 		return new Promise(function(resolve, reject) {
@@ -50,19 +46,17 @@ router.get('/:id', function(req, res, next) {
 	result()
 		.then(function(data) {
 			var articleData = JSON.parse(JSON.stringify(data[1]));
-			//console.log(data[0], data[1]);
-			// var article = new Article({
-			// 	read: 1
-			// });
 
 			Article.update({
 					_id: id
 				}, {
-					read: articleData[0].read + 1,
-					//author: '逍遥子'
+					read: articleData[0].read + 1
 				},
 				function(err) {
-					console.log('update ', err);
+					if (err) {
+						utils.log(err, 'red');
+					} else {}
+
 				});
 
 			if (req.query.debug === 'true') {
@@ -80,13 +74,11 @@ router.get('/:id', function(req, res, next) {
 				});
 			}
 
-
 		})
 		.catch(function(reason) {
-			console.log(reason);
+			utils.log(reason, 'red');
 			next();
 		});
-
 
 });
 

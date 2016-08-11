@@ -558,9 +558,10 @@ html, body { height: 100%; overflow: hidden; background-color: #eee; }
 
 .add-article-table th:nth-child(1), .add-article-table td:nth-child(1) { width: 10%; }
 .add-article-table th:nth-child(2), .add-article-table td:nth-child(2) { width: 10%; }
-.add-article-table th:nth-child(4), .add-article-table td:nth-child(4) { width: 20%; }
-.add-article-table th:nth-child(5), .add-article-table td:nth-child(5) { width: 10%; text-align: center; }
+.add-article-table th:nth-child(4), .add-article-table td:nth-child(4) { width: 15%; text-align: center; }
+.add-article-table th:nth-child(5), .add-article-table td:nth-child(5) { width: 15%; text-align: center; }
+.add-article-table th:nth-child(6), .add-article-table td:nth-child(6) { width: 10%; text-align: center; }
 
-.add-list .form-group-list { width: 528px; margin: auto; }
-.add-list .input { width: 500px; height: 40px; padding: 0 10px; }
-.add-list .textarea { width: 500px; padding: 10px 10px; }
+.add-list .form-group-list { width: 628px; margin: auto; }
+.add-list .input { width: 600px; height: 40px; padding: 0 10px; }
+.add-list .textarea { width: 600px; height: 300px; padding: 10px 10px; }

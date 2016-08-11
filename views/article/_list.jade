@@ -25,6 +25,6 @@ ul(class="article-list")
 							- var tags = articleItem.tag.split(',');
 							- for(var t=0; t<5; t++)
 								a(href="/")=tags[t]
-					div(class="content")=utils.slice(articleItem.body,250)
+					div(class="content")!=utils.slice(utils.strimHtml(articleItem.body),250)
 					div(class="view")
 						a(href=url,class="btn btn-1",target="_blank") 查看全文

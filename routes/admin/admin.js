@@ -138,28 +138,73 @@ router.get('/delete', function(req, res, next) {
 });
 
 router.get('/add', function(req, res, next) {
-	//res.redirect('/admin');
-	res.render('admin/add', {
-		nav: config.nav
+	var id = req.query.id;
+	Article.find({
+		_id: id
+	}, function(err, docs) {
+		var data = {};
+		utils.log(docs, 'yellow');
+		if (err) {
+
+		} else {
+			data = docs;
+		}
+		res.render('admin/add', {
+			classification: config.classification,
+			editType: id,
+			data: data[0]
+		});
 	});
+
 });
 //添加
 router.post('/add', function(req, res, next) {
 
-	var title = req.body.title || '';
-	var body = req.body.body || '';
-	var classification = req.body.classification || '';
-	var tag = req.body.tag || '';
+	var type = req.body.type || '',
+		title = req.body.title || '',
+		body = req.body.body || '',
+		classification = req.body.classification || '',
+		tag = req.body.tag || '',
+		id = req.body.id || '',
+		rs, article;
+		
 	tag = tag.split(',');
-	var article = new Article({
+
+	article = new Article({
 		author: req.session.user && req.session.user.userName,
 		title: req.body.title,
 		body: req.body.body,
 		classification: classification,
 		tag: tag
 	});
-	var rs;
+
+	utils.log(req.body, 'green');
+
 	if (title && body && classification) {
+
+		if ('update' === type && id) {
+			Article.update({
+					_id: id
+				}, {
+					title: title,
+					body: body,
+					tag: tag,
+					classification: classification,
+					updateDate: Date.now()
+				}, {
+					multi: true
+				},
+				function(err, info) {
+					if (err) {
+						rs = {
+							status: '20002'
+						};
+					}
+					res.send(response(rs));
+				});
+			return;
+		}
+
 		findArticle(function(err, docs) {
 			var status = true;
 			if (err) {
@@ -203,14 +248,13 @@ router.post('/add', function(req, res, next) {
 		});
 
 	} else {
+
 		rs = {
 			status: '10000'
 		};
 		utils.log(response(rs), 'red');
 		res.send(response(rs));
 	}
-
-
 
 });
 

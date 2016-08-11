@@ -24,7 +24,7 @@ var config = {
 		text: '工具',
 		url: '/web/tools'
 	}],
-	//nav: ['HTML', 'CSS3', 'SASS', 'Javascript', 'Nodejs', 'BigPipe', 'Backbone', 'Mongondb', 'Grunt'],
+	classification: ['HTML', 'CSS3', 'SASS', 'Javascript', 'Nodejs', 'BigPipe', 'Backbone', 'Mongondb', 'Grunt'],
 	response: function(options) {
 		var Response = function(options) {
 			var ops = options || {};
