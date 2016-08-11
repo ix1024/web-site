@@ -56,6 +56,7 @@ router.get('/', function(req, res, next) {
 					title: config.site.name,
 					user: req.session.user,
 					utils: utils,
+					nav: config.nav,
 					data: {
 						user: req.session.user || '',
 						articelCount: data[0],

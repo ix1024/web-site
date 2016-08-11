@@ -71,6 +71,7 @@ router.get('/:id', function(req, res, next) {
 				res.render('article', {
 					title: config.site.name,
 					utils: utils,
+					nav: config.nav,
 					data: {
 						user: req.session.user || '',
 						articelCount: data[0],

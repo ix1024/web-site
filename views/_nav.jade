@@ -1,20 +1,6 @@
 nav(class="nav")
 	ul
-		li(class="nav-item")
-			a(href="") HTML
-		li(class="nav-item")
-			a(href="") CSS3
-		li(class="nav-item")
-			a(href="") SASS
-		li(class="nav-item")
-			a(href="") Javascript
-		li(class="nav-item")
-			a(href="") Nodejs
-		li(class="nav-item")
-			a(href="") BigPipe
-		li(class="nav-item")
-			a(href="") Backbone
-		li(class="nav-item")
-			a(href="") Mongon
-		li(class="nav-item")
-			a(href="") Grunt
+		- var nav = locals.nav||[];
+		- for (var n = 0; n < nav.length; n++)
+			li(class="nav-item")
+				a(href="/web/"+nav[n])=nav[n]

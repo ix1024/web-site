@@ -12,7 +12,8 @@ block content
 			tbody
 				-for(var item=0; item<list.length; item++)
 					tr(id=list[item]._id)
-						td=(list[item].title||'')
+						td
+							a(href='/article/'+list[item]._id,target="_blank")=(list[item].title||'')
 						td=list[item].author
 						td=utils.slice(list[item].body,50)
 						td=new Date(list[item].date)

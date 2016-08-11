@@ -3,14 +3,8 @@ var router = express.Router();
 var config = require('../../config');
 var response = config.response;
 var utils = require('npm-utils-kingwell');
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema,
-	ObjectId = Schema.ObjectId;
 
-
-
-var Article = require('../../routes/model/acticle'); //mongoose.model('Article', {});
-var User = require('../../routes/model/user'); //mongoose.model('Article', {});
+var Article = require('../../routes/model/acticle');
 
 router.all('*', function(req, res, next) {
 
@@ -129,13 +123,13 @@ router.get('/delete', function(req, res, next) {
 				status: -1,
 				message: '删除失败'
 			};
-			console.log('删除失败');
+			utils.log('删除失败', 'red');
 		} else {
 			rs = {
 				result: true,
 				message: '删除成功'
 			};
-			console.log('删除成功');
+			utils.log('删除成功', 'green');
 		}
 		res.send(response(rs));
 	});
@@ -147,9 +141,8 @@ router.post('/add', function(req, res, next) {
 	var title = req.body.title || '';
 	var body = req.body.body || '';
 
-	//var Article = db.model('Article', BlogPost);
 	var article = new Article({
-		author: req.session.user,
+		author: req.session.user && req.session.user.userName,
 		title: req.body.title,
 		body: req.body.body,
 	});
@@ -161,10 +154,12 @@ router.post('/add', function(req, res, next) {
 				rs = {
 					status: '20000'
 				};
+				utils.log(error, 'red');
 			} else {
 				rs = {
 					result: item._id
 				};
+				utils.log('添加成功', 'green');
 			}
 
 		});
@@ -172,6 +167,7 @@ router.post('/add', function(req, res, next) {
 		rs = {
 			status: '10000'
 		};
+		utils.log(response(rs), 'red');
 	}
 	res.send(response(rs));
 

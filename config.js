@@ -5,6 +5,7 @@ var config = {
 		name: 'Front-end laboratory',
 		host: ''
 	},
+	nav: ['HTML', 'CSS3', 'SASS', 'Javascript', 'Nodejs', 'BigPipe', 'Backbone', 'Mongondb', 'Grunt'],
 	response: function(options) {
 		var Response = function(options) {
 			var ops = options || {};

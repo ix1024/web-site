@@ -1,0 +1,14 @@
+ul(class="article-list")
+	- var data = locals.data||{};
+	- var articelList = data.articelList || [];
+	- for(var articleIndex =0; articleIndex <articelList.length; articleIndex++)
+		- var articleItem =articelList[articleIndex];
+		- var url = '/article/'+articleItem._id
+		li
+			div(class="img")
+				img(src="/images/logo_JavaScript.png", alt="")
+			h1(class="title")=articleItem.title
+			div(class="info")=articleItem.date
+			div(class="content")=utils.slice(articleItem.body,400)
+			div(class="view")
+				a(href=url,class="btn btn-1",target="_blank") 查看全文
