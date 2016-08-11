@@ -15,6 +15,10 @@ $headerHeight: 50px;
 		margin-left: 20px;
 	}
 
+	a {
+		color: #fff;
+	}
+
 }
 
 .footer {
@@ -76,6 +80,29 @@ $headerHeight: 50px;
 			background-color: #3577A3;
 		}
 
+	}
+
+}
+
+.header-user {
+	padding: 10px;
+	height: 30px;
+	line-height: 30px;
+
+	img {
+		width: 30px;
+		border-radius: 50%;
+	}
+
+	a {
+		margin: 0 5px;
+	}
+
+	img,
+	span,
+	a {
+		@extend .vm;
+		@extend .inline-block;
 	}
 
 }

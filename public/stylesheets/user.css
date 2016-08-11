@@ -470,6 +470,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .text-center { text-align: center; }
 
+.vm { vertical-align: middle; }
+
 .ell { -ms-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
 
 .of-x-hidden { overflow-x: hidden; }

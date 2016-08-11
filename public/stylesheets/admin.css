@@ -470,6 +470,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .text-center { text-align: center; }
 
+.vm { vertical-align: middle; }
+
 .ell { -ms-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
 
 .of-x-hidden { overflow-x: hidden; }
@@ -520,21 +522,25 @@ html, body { height: 100%; overflow: hidden; background-color: #eee; }
 .user-box img { border-radius: 50%; }
 .user-box img, .user-box span { display: inline-block; margin: 0 5px; vertical-align: middle; }
 
-.admin-aside { position: absolute; left: 0; top: 0; width: 200px; height: 100%; margin-top: 50px; background-color: #333; }
+.admin-aside { position: absolute; left: 0; top: 0; width: 200px; height: 100%; background-color: #2c343f; }
 .admin-aside .tab-selected-source { background-color: #666; }
-.admin-aside a { display: block; color: #fff; font-size: 14px; line-height: 30px; padding: 0 10px; }
+.admin-aside a { display: block; color: #fff; font-size: 14px; line-height: 40px; padding: 0 10px; }
 
 .admin-main { padding: 20px; margin: 20px; background-color: #fff; }
 .admin-main li, .admin-main ul { margin: 0; padding: 0; }
 .admin-main li { list-style-type: none; }
 
+.admin-logo { height: 50px; line-height: 50px; text-align: center; color: #fff; }
+.admin-logo img { width: 30px; }
+.admin-logo strong { font-size: 20px; }
+
 .admin-content { margin-left: 200px; }
 
-.tab-win-box { height: 40px; border-bottom: 1px solid #ccc; }
+.tab-win-box { height: 40px; border-bottom: 5px solid #2f4050; }
 .tab-win-box li, .tab-win-box span { height: 40px; line-height: 40px; }
 .tab-win-box .tab-hover .tab-del { display: block; }
-.tab-win-box .tab-del { display: none; position: absolute; top: 50%; right: 0; margin-top: -10px; width: 20px; height: 20px; line-height: 20px; text-align: center; background-color: #eee; border-radius: 50%; cursor: pointer; }
-.tab-win-box .tab-select span { background-color: #333; color: #fff; }
+.tab-win-box .tab-del { display: none; position: absolute; top: 50%; right: 5px; margin-top: -10px; width: 20px; height: 20px; line-height: 20px; text-align: center; background-color: #eee; border-radius: 50%; cursor: pointer; }
+.tab-win-box .tab-select span { background-color: #2f4050; color: #fff; }
 .tab-win-box li { position: relative; }
 .tab-win-box li span { display: block; cursor: pointer; padding: 0 30px; background-color: #eee; border-right: 1px solid #ccc; }
 

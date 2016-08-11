@@ -1,0 +1,7 @@
+div(class="header-user")
+	if user
+		img(src="/images/user.jpg", alt="")
+		a(href="/admin")=(user&&user.userName)
+		a(href="/logout") 退出
+	else 
+		a(href="/login") 登录

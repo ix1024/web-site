@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var utils = require('npm-utils-kingwell');
 var mongoose = require('mongoose');
 var config = require('./config');
 var routes = require('./routes/index');
@@ -57,7 +58,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //退出登录
 app.use('/logout', function(req, res, next) {
   req.session.user = null;
-  res.redirect('/admin');
+  res.redirect('/');
 });
 
 app.use('/', routes);

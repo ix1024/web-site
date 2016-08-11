@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var config = require('../config');
-var fn = require('../fn');
+var utils = require('npm-utils-kingwell');
 var response = config.response;
 var Schema = mongoose.Schema,
 	ObjectId = Schema.ObjectId;
@@ -70,7 +70,7 @@ router.get('/:id', function(req, res, next) {
 			} else {
 				res.render('article', {
 					title: config.site.name,
-					fn: fn,
+					utils: utils,
 					data: {
 						user: req.session.user || '',
 						articelCount: data[0],

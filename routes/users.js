@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('./model/user'); //mongoose.model('Article', {});
 var config = require('../config');
-var fn = require('../fn');
+var utils = require('npm-utils-kingwell');
 var response = config.response;
 
 /* GET users listing. */

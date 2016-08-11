@@ -1,24 +1,18 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-//var mongoose = require('../acticle');
 var config = require('../config');
-var fn = require('../fn');
+var utils = require('npm-utils-kingwell');
 var response = config.response;
-var Schema = mongoose.Schema,
-	ObjectId = Schema.ObjectId;
+var Article = require('../routes/model/acticle');
 
-//var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function() {
-// 	console.log('open');
-// });
-
-//var Article = require('../acticle'); //mongoose.model('Article', {});
-var Article = require('../routes/model/acticle'); //mongoose.model('Article', {});
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
+	if (req.session.user) {
+		utils.log(req.session.user, 'yellow');
+	} else {
+		utils.log('未登录', 'red');
+	}
 
 	var count = function() {
 		return new Promise(function(resolve, reject) {
@@ -57,9 +51,11 @@ router.get('/', function(req, res, next) {
 			if (req.query.debug === 'true') {
 				res.send(data);
 			} else {
+				//utils.log(data, 'yellow');
 				res.render('index', {
 					title: config.site.name,
-					fn: fn,
+					user: req.session.user,
+					utils: utils,
 					data: {
 						user: req.session.user || '',
 						articelCount: data[0],
@@ -71,7 +67,7 @@ router.get('/', function(req, res, next) {
 
 		})
 		.catch(function(reason) {
-			console.log(reason);
+			utils.log(reason, 'red');
 		});
 
 

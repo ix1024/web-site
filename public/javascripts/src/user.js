@@ -9,7 +9,7 @@ define(['jquery'], function($) {
 			},
 			success: function(data) {
 				if (data && data.status === '00000') {
-					window.location.href = '/admin';
+					window.location.href = '/';
 				} else {
 
 				}

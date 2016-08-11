@@ -8,7 +8,7 @@ block content
 				span 作者：
 				strong=data.result[0].author
 				span 日期：
-				strong=fn.getDateString(data.result[0].date)
+				strong=utils.getDateString(data.result[0].date)
 				span   阅读：
 				strong=strong=data.result[0].read
 			div(class="article-content")=data.result[0].body		 

@@ -12,7 +12,7 @@ block content
 							img(src="/images/logo_JavaScript.png", alt="")
 						h1(class="title")=articleItem.title
 						div(class="info")=articleItem.date
-						div(class="content")=fn.slice(articleItem.body,400)
+						div(class="content")=utils.slice(articleItem.body,400)
 						div(class="view")
 							a(href=url,class="btn btn-1",target="_blank") 查看全文
 		div.aside

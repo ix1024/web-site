@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var config = require('../../config');
 var response = config.response;
-var fn = require('../../fn');
-
+var utils = require('npm-utils-kingwell');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema,
 	ObjectId = Schema.ObjectId;
@@ -14,7 +13,13 @@ var Article = require('../../routes/model/acticle'); //mongoose.model('Article',
 var User = require('../../routes/model/user'); //mongoose.model('Article', {});
 
 router.all('*', function(req, res, next) {
-	console.log('req.session.user', req.session.user);
+
+
+	if (req.session.user) {
+		utils.log('已经登录', 'green');
+	} else {
+		utils.log('未登录', 'red');
+	}
 	if (req.session.user) {
 		next();
 	} else {
@@ -27,14 +32,14 @@ router.get('/', function(req, res, next) {
 
 	res.render('admin/home', {
 		user: req.session.user,
-		title: 'admin'
+		title: config.site.name
 	});
 
 });
 router.get('/user-list', function(req, res, next) {
 
 	res.render('admin/user', {
-		title: 'admin'
+		title: config.site.name
 	});
 
 });
@@ -90,8 +95,8 @@ router.get('/list', function(req, res, next) {
 		.then(function(data) {
 			//console.log(data);
 			res.render('admin/list', {
-				title: 'Express',
-				fn: fn,
+				title: config.site.name,
+				utils: utils,
 				list: data[1]
 			});
 		})

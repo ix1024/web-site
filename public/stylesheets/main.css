@@ -470,6 +470,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .text-center { text-align: center; }
 
+.vm, .header-user img, .header-user span, .header-user a { vertical-align: middle; }
+
 .ell { -ms-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
 
 .of-x-hidden { overflow-x: hidden; }
@@ -482,7 +484,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .no-resize { resize: none; }
 
-.inline-block { display: inline-block; *display: inline; *zoom: 1; }
+.inline-block, .header-user img, .header-user span, .header-user a { display: inline-block; *display: inline; *zoom: 1; }
 
 .user-select { -moz-user-select: none; /* firefox */ -webkit-user-select: none; /* webkit */ -ms-user-select: none; /* IE10 */ -khtml-user-select: none; /* old */ user-select: none; }
 
@@ -511,6 +513,7 @@ textarea { resize: none; }
 
 .header { height: 50px; background-color: #314D68; }
 .header strong { height: 50px; line-height: 50px; margin-left: 20px; }
+.header a { color: #fff; }
 
 .footer { text-align: center; padding: 30px 20px 50px 20px; color: #eee; background-color: #314D68; }
 
@@ -526,6 +529,10 @@ textarea { resize: none; }
 .nav li.nav-item, .nav a { height: 50px; line-height: 50px; }
 .nav a { display: block; color: #fff; font-size: 16px; padding: 0 10px; }
 .nav a:hover { background-color: #3577A3; }
+
+.header-user { padding: 10px; height: 30px; line-height: 30px; }
+.header-user img { width: 30px; border-radius: 50%; }
+.header-user a { margin: 0 5px; }
 
 .article-list { padding: 0 10px; }
 .article-list li { border-bottom: 1px solid #eee; padding: 20px 0; }

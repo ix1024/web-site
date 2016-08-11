@@ -2,7 +2,7 @@
 
 var config = {
 	site: {
-		name: '前端实验室',
+		name: 'Front-end laboratory',
 		host: ''
 	},
 	response: function(options) {

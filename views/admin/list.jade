@@ -14,7 +14,7 @@ block content
 					tr(id=list[item]._id)
 						td=(list[item].title||'')
 						td=list[item].author
-						td=fn.slice(list[item].body,50)
+						td=utils.slice(list[item].body,50)
 						td=new Date(list[item].date)
 						td
 							span(class="btn btn-1") 编辑
