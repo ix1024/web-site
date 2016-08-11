@@ -503,7 +503,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 body { font-size: 14px; font: normal normal 12px/1.5 Arial, "Microsoft YaHei"; }
 
-a { text-decoration: none; }
+a { text-decoration: none; color: #333; }
+a:hover { color: #314D68; }
 
 textarea { resize: none; }
 

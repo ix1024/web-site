@@ -3,4 +3,4 @@ nav(class="nav")
 		- var nav = locals.nav||[];
 		- for (var n = 0; n < nav.length; n++)
 			li(class="nav-item")
-				a(href="/web/"+nav[n])=nav[n]
+				a(href=nav[n].url)=nav[n].text

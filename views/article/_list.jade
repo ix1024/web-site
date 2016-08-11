@@ -5,10 +5,26 @@ ul(class="article-list")
 		- var articleItem =articelList[articleIndex];
 		- var url = '/article/'+articleItem._id
 		li
-			div(class="img")
-				img(src="/images/logo_JavaScript.png", alt="")
-			h1(class="title")=articleItem.title
-			div(class="info")=articleItem.date
-			div(class="content")=utils.slice(articleItem.body,400)
-			div(class="view")
-				a(href=url,class="btn btn-1",target="_blank") 查看全文
+			dl
+				dt(class="img")
+					img(src="/images/logo_JavaScript.png", alt="")
+				dd			
+					h1(class="title")
+						a(href=url,target="_blank")=utils.slice(articleItem.title,50)
+					div(class="info clearfix")
+						div(class="fl")
+							span 作者：
+							strong=articleItem.author
+							span 日期：
+							strong=utils.getDateString(articleItem.date)
+							span 阅读：
+							strong=articleItem.read
+							span 点赞：
+							strong=articleItem.like
+						div(class="fr list-tags")
+							- var tags = articleItem.tag.split(',');
+							- for(var t=0; t<5; t++)
+								a(href="/")=tags[t]
+					div(class="content")=utils.slice(articleItem.body,250)
+					div(class="view")
+						a(href=url,class="btn btn-1",target="_blank") 查看全文

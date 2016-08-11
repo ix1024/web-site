@@ -4,9 +4,15 @@ block content
 		form(class="form-group",action="/admin/add",method="post")
 			ul(class="form-group-list")
 				li(class="form-group-item")
+					select(name="classification")
+						- for(n=0;n<nav.length;n++)
+							option(value=nav[n])=nav[n]
+				li(class="form-group-item")
 					input(class="input",name="title",type="text")
 				li(class="form-group-item")
 					textarea(class="textarea",name="body", cols="30", rows="10")
+				li(class="form-group-item")
+					input(class="input",name="tag",type="text")
 				li(class="form-group-item")
 					div(class="btn-box")
 						button(class="btn btn-1") submit

@@ -5,7 +5,11 @@ var response = config.response;
 var utils = require('npm-utils-kingwell');
 
 var Article = require('../../routes/model/acticle');
-
+var findArticle = function(callback) {
+	Article.find({}, function(err, docs) {
+		callback(err, docs);
+	});
+};
 router.all('*', function(req, res, next) {
 
 
@@ -104,10 +108,7 @@ router.get('/index', function(req, res, next) {
 	//res.send('5555');
 	res.render('admin/index');
 });
-router.get('/add', function(req, res, next) {
-	//res.redirect('/admin');
-	res.render('admin/add');
-});
+
 
 //删除
 router.get('/delete', function(req, res, next) {
@@ -135,41 +136,81 @@ router.get('/delete', function(req, res, next) {
 	});
 
 });
+
+router.get('/add', function(req, res, next) {
+	//res.redirect('/admin');
+	res.render('admin/add', {
+		nav: config.nav
+	});
+});
 //添加
 router.post('/add', function(req, res, next) {
 
 	var title = req.body.title || '';
 	var body = req.body.body || '';
-
+	var classification = req.body.classification || '';
+	var tag = req.body.tag || '';
+	tag = tag.split(',');
 	var article = new Article({
 		author: req.session.user && req.session.user.userName,
 		title: req.body.title,
 		body: req.body.body,
+		classification: classification,
+		tag: tag
 	});
 	var rs;
-	if (title && body) {
-		article.save(function(error, item) {
-
-			if (error) {
+	if (title && body && classification) {
+		findArticle(function(err, docs) {
+			var status = true;
+			if (err) {
 				rs = {
-					status: '20000'
+					status: '20003'
 				};
-				utils.log(error, 'red');
+				utils.log(response(rs), 'red');
 			} else {
-				rs = {
-					result: item._id
-				};
-				utils.log('添加成功', 'green');
-			}
+				for (var d = 0, len = docs.length; d < len; d++) {
+					if (docs[d].title === title) {
+						status = false;
+						break;
+					}
+				}
+				if (status) {
+					article.save(function(error, item) {
 
+						if (error) {
+							rs = {
+								status: '20000'
+							};
+							utils.log(error, 'red');
+						} else {
+							rs = {
+								result: item._id
+							};
+							utils.log('添加成功', 'green');
+
+						}
+						res.send(response(rs));
+
+					});
+				} else {
+					rs = {
+						status: '20004'
+					};
+					utils.log(response(rs), 'red');
+					res.send(response(rs));
+				}
+			}
 		});
+
 	} else {
 		rs = {
 			status: '10000'
 		};
 		utils.log(response(rs), 'red');
+		res.send(response(rs));
 	}
-	res.send(response(rs));
+
+
 
 });
 

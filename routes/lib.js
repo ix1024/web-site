@@ -8,16 +8,22 @@ var response = config.response;
 router.get('/web/:id', function(req, res, next) {
 	var id = req.params.id;
 	utils.log(id);
-	if (-1 !== utils.inArray(id, config.nav)) {
-		//res.send(id);
-		res.render('article/list', {
-			title: config.site.name,
-			utils: utils,
-			nav: config.nav
-		});
-	} else {
-		next();
-	}
+	res.render('article/list', {
+		user: req.session.user,
+		title: config.site.name,
+		utils: utils,
+		nav: config.nav
+	});
+	// if (-1 !== utils.inArray(id, config.nav)) {
+	// 	//res.send(id);
+	// 	res.render('article/list', {
+	// 		title: config.site.name,
+	// 		utils: utils,
+	// 		nav: config.nav
+	// 	});
+	// } else {
+	// 	next();
+	// }
 
 });
 

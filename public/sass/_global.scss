@@ -52,9 +52,11 @@
 .text-center {
 	text-align: center;
 }
-.vm{
+
+.vm {
 	vertical-align: middle;
 }
+
 .ell {
 	@include ell;
 }
@@ -119,6 +121,12 @@ body {
 a {
 	text-decoration: none;
 	@extend .transition;
+	color: #333;
+
+	&:hover {
+		color: $mainColor;
+	}
+
 }
 
 textarea {

@@ -32,3 +32,21 @@ body {
 	}
 
 }
+
+.tags {
+	a {
+		@extend .inline-block;
+		padding: 5px;
+		margin: 0 5px 5px 0px;
+		border: 1px solid #ccc;
+		border-radius: $radius;
+		color: #333;
+
+		&:hover {
+			background-color: $mainColor;
+			color: #fff;
+		}
+
+	}
+
+}

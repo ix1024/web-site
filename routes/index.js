@@ -5,7 +5,11 @@ var config = require('../config');
 var utils = require('npm-utils-kingwell');
 var response = config.response;
 var Article = require('../routes/model/acticle');
-
+var findArticle = function(callback) {
+	Article.find({}, function(err, docs) {
+		callback(err, docs);
+	});
+};
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	if (req.session.user) {
@@ -14,6 +18,18 @@ router.get('/', function(req, res, next) {
 		utils.log('未登录', 'red');
 	}
 
+	var tag = function() {
+		return new Promise(function(resolve, reject) {
+			findArticle(function(err, docs) {
+				if (err) {
+					reject(err);
+				} else {
+					resolve(docs);
+				}
+
+			});
+		});
+	};
 	var count = function() {
 		return new Promise(function(resolve, reject) {
 			Article.count({}, function(err, num) {
@@ -29,7 +45,7 @@ router.get('/', function(req, res, next) {
 	};
 	var find = function() {
 		return new Promise(function(resolve, reject) {
-			Article.find({}, function(err, docs) {
+			findArticle(function(err, docs) {
 				if (err) {
 					reject(err);
 				} else {
@@ -42,16 +58,29 @@ router.get('/', function(req, res, next) {
 	var result = function() {
 		return Promise.all([
 			count(),
-			find()
+			find(),
+			tag()
 		]);
 	};
 	result()
 		.then(function(data) {
-			//console.log(data[0], data[1]);
+
+			//tags
+			var tags = [];
+			data[2].forEach(function(item) {
+				var tag = item.tag || '';
+				if (tag) {
+					tags.push(tag);
+				}
+			});
+			tags = tags.join('').split(',');
+			tags = utils.toDenseArray(tags);
+			tags = utils.delArray(tags);
+
+
 			if (req.query.debug === 'true') {
 				res.send(data);
 			} else {
-				//utils.log(data, 'yellow');
 				res.render('index', {
 					title: config.site.name,
 					user: req.session.user,
@@ -60,18 +89,15 @@ router.get('/', function(req, res, next) {
 					data: {
 						user: req.session.user || '',
 						articelCount: data[0],
-						articelList: JSON.parse(JSON.stringify(data[1]))
+						articelList: JSON.parse(JSON.stringify(data[1])),
+						tags: tags
 					}
 				});
 			}
-
-
 		})
 		.catch(function(reason) {
 			utils.log(reason, 'red');
 		});
-
-
 });
 
 module.exports = router;

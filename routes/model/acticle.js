@@ -9,11 +9,16 @@ var BlogPost = new Schema({
 	},
 	title: String,
 	body: String,
+	classification: String,
 	tag: {
 		type: String,
 		default: ''
 	},
 	read: {
+		type: Number,
+		default: 1
+	},
+	like: {
 		type: Number,
 		default: 1
 	},

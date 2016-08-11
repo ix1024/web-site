@@ -5,7 +5,26 @@ var config = {
 		name: 'Front-end laboratory',
 		host: ''
 	},
-	nav: ['HTML', 'CSS3', 'SASS', 'Javascript', 'Nodejs', 'BigPipe', 'Backbone', 'Mongondb', 'Grunt'],
+	nav: [{
+		text: '首页',
+		url: '/'
+	}, {
+		text: 'HTML',
+		url: '/web/html'
+	}, {
+		text: 'CSS',
+		url: '/web/css'
+	}, {
+		text: 'Javascript',
+		url: '/web/js'
+	}, {
+		text: 'Mongodb',
+		url: '/web/mongodb'
+	}, {
+		text: '工具',
+		url: '/web/tools'
+	}],
+	//nav: ['HTML', 'CSS3', 'SASS', 'Javascript', 'Nodejs', 'BigPipe', 'Backbone', 'Mongondb', 'Grunt'],
 	response: function(options) {
 		var Response = function(options) {
 			var ops = options || {};
@@ -29,6 +48,8 @@ var config = {
 					'20000': '保存失败',
 					'20001': '删除失败',
 					'20002': '更新失败',
+					'20003': '查找失败',
+					'20004': '存在相同项',
 					/* 登录 */
 					'30001': '登录失败',
 					'30002': '用户名不对',

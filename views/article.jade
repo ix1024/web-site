@@ -10,7 +10,7 @@ block content
 				span 日期：
 				strong=utils.getDateString(data.result[0].date)
 				span   阅读：
-				strong=strong=data.result[0].read
+				strong=strong=data.result[0].read+1
 			div(class="article-content")=data.result[0].body		 
 	include _footer
 block scripts

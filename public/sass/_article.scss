@@ -1,9 +1,25 @@
 .article-list {
 	padding: 0 10px;
+	$width: 200px;
+
+	dl {
+		position: relative;
+	}
+
+	dt {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: $width;
+	}
+
+	dd {
+		height: $width;
+		margin-left: $width+20;
+	}
 
 	li {
 		border-bottom: 1px solid #eee;
-		//margin-bottom: 00px;
 		padding: 20px 0;
 		@extend .clearfix;
 	}
@@ -21,25 +37,49 @@
 	}
 
 	.title {
+		height: 40px;
 		font-weight: bold;
 		font-size: 23px;
-		color: #444;
+
+		&,
+		a {
+			color: #444;
+		}
+
 	}
 
 	.content {
+		height: 96px;
 		color: #666;
 		font-size: 12px;
 		line-height: 2;
 	}
 
 	.info {
+		height: 30px;
 		color: #999;
-		margin: 5px 0;
+
+		span {
+		}
+
+		strong {
+			margin: 0 10px 0 3px;
+		}
+
 	}
 
 	.view {
+		height: 28px;
 		text-align: right;
 		margin-top: 10px;
+	}
+
+	.list-tags {
+		a {
+			color: #999;
+			margin: 0 3px;
+		}
+
 	}
 
 }

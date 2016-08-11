@@ -1,0 +1,5 @@
+div(class="tags")
+	-var data = locals.data||{};
+	- var tags = data.tags||[];
+	- for(var t=0;t<tags.length;t++)
+		a(class="",href="")=tags[t]

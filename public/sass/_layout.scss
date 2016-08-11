@@ -1,5 +1,5 @@
 @import 'varliable';
-$mainWidth: 80%;
+$mainWidth: 78%;
 $asideWidth: 20%;
 $headerHeight: 50px;
 
@@ -58,6 +58,7 @@ $headerHeight: 50px;
 .nav {
 	@extend .clearfix;
 	@extend .fr;
+	margin-left: 20px;
 
 	li.nav-item {
 		@extend .fl;
@@ -73,7 +74,7 @@ $headerHeight: 50px;
 		display: block;
 		color: #fff;
 		font-size: 16px;
-		padding: 0 10px;
+		padding: 0 15px;
 
 		&:hover {
 			//opacity: 1;
@@ -105,4 +106,18 @@ $headerHeight: 50px;
 		@extend .inline-block;
 	}
 
+}
+
+//section
+.section {
+	.section-title {
+		//font-weight: bold;
+		font-size: 16px;
+	}
+
+	.section-content {
+		margin-top: 10px;
+	}
+
+	margin-bottom: 20px;
 }
