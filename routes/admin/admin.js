@@ -167,7 +167,7 @@ router.post('/add', function(req, res, next) {
 		tag = req.body.tag || '',
 		id = req.body.id || '',
 		rs, article;
-		
+
 	tag = tag.split(',');
 
 	article = new Article({
@@ -258,5 +258,20 @@ router.post('/add', function(req, res, next) {
 
 });
 
+//分类管理
+router.get('/classification', function(req, res, next) {
+	res.render('admin/classification');
+});
+router.post('/classification', function(req, res, next) {
+	res.render('admin/classification');
+});
+
+//导航管理
+router.get('/nav', function(req, res, next) {
+	res.render('admin/nav');
+});
+router.post('/nav', function(req, res, next) {
+	res.render('admin/nav');
+});
 
 module.exports = router;

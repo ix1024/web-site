@@ -54,12 +54,30 @@ router.get('/', function(req, res, next) {
 			});
 		});
 	};
+	var findLast = function() {
+		return new Promise(function(resolve, reject) {
+			Article
+				.find({})
+				//.where('data')
+				.exec(function(err, docs) {
+					console.log(err);
+					console.log(docs);
+					if (err) {
+						reject(err);
+					} else {
+						resolve(docs);
+					}
+				});
+
+		});
+	};
 
 	var result = function() {
 		return Promise.all([
 			count(),
 			find(),
-			tag()
+			tag(),
+			findLast()
 		]);
 	};
 	result()
@@ -91,6 +109,8 @@ router.get('/', function(req, res, next) {
 						user: req.session.user || '',
 						articelCount: data[0],
 						articelList: JSON.parse(JSON.stringify(data[1])),
+						classification: config.classification,
+						lastArticleList: JSON.parse(JSON.stringify(data[2])),
 						tags: tags
 					}
 				});

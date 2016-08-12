@@ -4,8 +4,11 @@
 html,
 body {
 	height: 100%;
-	overflow: hidden;
 	background-color: #eee;
+}
+
+.home-page {
+	overflow: hidden;
 }
 
 .input,
@@ -237,6 +240,7 @@ $tabHeight: 40px;
 			width: 15%;
 			text-align: center;
 		}
+
 		&:nth-child(5) {
 			width: 15%;
 			text-align: center;

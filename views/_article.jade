@@ -1,1 +1,5 @@
-div article
+ul
+	-var classification= data.classification||[];
+	- for(var a=0;a<classification.length; a++)
+		li
+			a(href="/classification/"+classification[a])=classification[a]

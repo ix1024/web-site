@@ -512,7 +512,9 @@ textarea { resize: none; }
 .form-group .btn-box { text-align: right; }
 .form-group .btn { padding: 10px 20px; font-size: 14px; }
 
-html, body { height: 100%; overflow: hidden; background-color: #eee; }
+html, body { height: 100%; background-color: #eee; }
+
+.home-page { overflow: hidden; }
 
 .input, .textarea { border: 1px solid #ccc; border-radius: 3px; }
 
