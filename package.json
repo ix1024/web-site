@@ -18,7 +18,7 @@
     "mongoose-express-session": "0.0.5",
     "mongoose-session": "0.0.4",
     "morgan": "~1.6.1",
-    "multer": "^1.1.0",
+    "multer": "^1.2.0",
     "npm-utils-kingwell": "^1.0.7",
     "serve-favicon": "~2.3.0"
   },

@@ -4,6 +4,7 @@ var User = require('./model/user'); //mongoose.model('Article', {});
 var config = require('../config');
 var utils = require('npm-utils-kingwell');
 var response = config.response;
+var Article = require('../routes/model/acticle');
 
 router.get('/web/:id', function(req, res, next) {
 	var id = req.params.id;
@@ -14,16 +15,26 @@ router.get('/web/:id', function(req, res, next) {
 		utils: utils,
 		nav: config.nav
 	});
-	// if (-1 !== utils.inArray(id, config.nav)) {
-	// 	//res.send(id);
-	// 	res.render('article/list', {
-	// 		title: config.site.name,
-	// 		utils: utils,
-	// 		nav: config.nav
-	// 	});
-	// } else {
-	// 	next();
-	// }
+});
+router.get('/tag/:id', function(req, res, next) {
+	var id = req.params.id;
+	utils.log(id);
+	var r = '' + id + '';
+	var reg = RegExp(r, 'ig');
+	Article
+		.find({})
+		.where('tag', reg)
+		.exec(function(err, docs) {
+			res.render('article/list', {
+				user: req.session.user,
+				title: config.site.name,
+				utils: utils,
+				data: {
+					articelList: docs
+				},
+				nav: config.nav
+			});
+		});
 
 });
 

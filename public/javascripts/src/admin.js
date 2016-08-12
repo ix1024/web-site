@@ -52,7 +52,8 @@ require(['jquery', 'tab'], function($, tab) {
 
 	var editor;
 	editor = KindEditor.create('textarea[name="body"]', {
-		allowFileManager: true
+		allowFileManager: true,
+		uploadJson: '/api/upload'
 	});
 	KindEditor.ready(function(K) {
 

@@ -73,7 +73,8 @@ router.get('/', function(req, res, next) {
 					tags.push(tag);
 				}
 			});
-			tags = tags.join('').split(',');
+
+			tags = tags.join(',').split(',');
 			tags = utils.toDenseArray(tags);
 			tags = utils.delArray(tags);
 

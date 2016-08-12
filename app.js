@@ -7,28 +7,29 @@ var bodyParser = require('body-parser');
 var utils = require('npm-utils-kingwell');
 var mongoose = require('mongoose');
 var config = require('./config');
-var routes = require('./routes/index');
-var article = require('./routes/article');
-var users = require('./routes/users');
-var demo = require('./routes/demo');
-var lib = require('./routes/lib');
+//var MyArticle = require('./routes/model/my-article');
 
-//后台
-var admin = require('./routes/admin/admin');
+
+/**
+ ** ==========
+ ** ===路由===
+ ** ==========
+ */
+var routes = {
+  index: require('./routes/index'), //首页
+  article: require('./routes/article'), //文章
+  users: require('./routes/users'), //用户-登录，注册
+  demo: require('./routes/demo'),
+  web: require('./routes/web'), //web
+  upload: require('./routes/api/upload'), //上传
+  file: require('./routes/api/file'), //上传
+  admin: require('./routes/admin/admin') //后台
+};
 
 var app = express();
-
-//Session
-// app.use(require('express-session')({
-//   key: 'session',
-//   secret: 'SUPER SECRET SECRET',
-//   store: require('mongoose-session')(mongoose)
-// }));
 mongoose.connect('mongodb://localhost/kingwell');
-
 var Store = require('express-session').Store;
 var MongooseStore = require('mongoose-express-session')(Store);
-
 app.use(require('express-session')({
   secret: 'keyboard cat',
   resave: false,
@@ -61,13 +62,14 @@ app.use('/logout', function(req, res, next) {
   res.redirect('/');
 });
 
-app.use('/', routes);
-app.use('/article', article);
-//后台
-app.use('/admin', admin);
-app.use('/', lib);
-app.use('/', users);
-app.use('/demo', demo);
+app.use('/', routes.index);
+app.use('/article', routes.article);
+app.use('/admin', routes.admin);
+app.use('/', routes.web);
+app.use('/', routes.users);
+app.use('/demo', routes.demo);
+app.use('/api/upload', routes.upload);
+app.use('/file', routes.file);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

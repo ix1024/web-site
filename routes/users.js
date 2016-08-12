@@ -6,15 +6,15 @@ var utils = require('npm-utils-kingwell');
 var response = config.response;
 
 /* GET users listing. */
-router.get('*', function(req, res, next) {
+// router.get(':id', function(req, res, next) {
 
-	if (req.session.user) {
-		res.redirect('/admin');
-	} else {
-		next();
-	}
+// 	if (req.session.user) {
+// 		res.redirect('/admin');
+// 	} else {
+// 		next();
+// 	}
 
-});
+// });
 
 //登录页面
 router.get('/login', function(req, res, next) {
