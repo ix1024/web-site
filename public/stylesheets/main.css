@@ -447,17 +447,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .btn { display: inline-block; cursor: pointer; border-radius: 3px; border: none; }
 .btn:hover { opacity: 0.7; }
 
-.btn-1 { padding: 5px 10px; margin: 0 5px; background-color: #314D68; color: #fff; }
+.btn-1 { padding: 5px 10px; margin: 0 5px; background-color: #383D45; color: #fff; }
+
+.btn-2 { border-style: solid; border-width: 1px; border-color: #ccc; }
 
 /*
 ** ==========  ==========
 */
-.clearfix:before, .wrap:before, .nav:before, .article-list li:before, .clearfix:after, .wrap:after, .nav:after, .article-list li:after { clear: both; content: '.'; display: block; height: 0; line-height: 0; overflow: hidden; }
-.clearfix, .wrap, .nav, .article-list li { zoom: 1; }
+.clearfix:before, .bread-crumbs:before, .wrap:before, .nav:before, .article-list li:before, .clearfix:after, .bread-crumbs:after, .wrap:after, .nav:after, .article-list li:after { clear: both; content: '.'; display: block; height: 0; line-height: 0; overflow: hidden; }
+.clearfix, .bread-crumbs, .wrap, .nav, .article-list li { zoom: 1; }
 
 .clear { clear: both; height: 0; line-height: 0; overflow: hidden; }
 
-.fl, .header strong, .main, .nav li.nav-item, .article-list .img { float: left; _display: inline; }
+.fl, .header strong, .bread-crumbs a, .bread-crumbs em, .bread-crumbs span, .main, .nav li.nav-item, .article-list .img { float: left; _display: inline; }
 
 .fr, .aside, .nav { float: right; _display: inline; }
 
@@ -504,7 +506,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 body { font-size: 14px; font: normal normal 12px/1.5 Arial, "Microsoft YaHei"; }
 
 a { text-decoration: none; color: #333; }
-a:hover { color: #314D68; }
+a:hover { color: #383D45; }
 
 textarea { resize: none; }
 
@@ -512,11 +514,26 @@ textarea { resize: none; }
 .form-group .btn-box { text-align: right; }
 .form-group .btn { padding: 10px 20px; font-size: 14px; }
 
-.header { height: 50px; background-color: #314D68; }
-.header strong { height: 50px; line-height: 50px; margin-left: 20px; }
-.header a { color: #fff; }
+div.block-margin { margin-top: 20px; }
 
-.footer { text-align: center; padding: 30px 20px 50px 20px; color: #eee; background-color: #314D68; }
+.header { height: 50px; background-color: #383D45; }
+.header .wrap { min-height: inherit; }
+.header strong { height: 50px; line-height: 50px; margin-left: 20px; }
+.header span { color: #6f9a37; }
+.header a { color: #fff; }
+.header .search-box { margin-top: 10px; margin-left: 50px; }
+.header .btn-2 { padding: 0px 10px; }
+.header .btn-2:hover { color: #383D45; background-color: #fff; opacity: 1; }
+
+.bread-crumbs .wrap { min-height: inherit; border-bottom: 1px solid #f2f2f2; }
+.bread-crumbs a, .bread-crumbs em, .bread-crumbs span { height: 50px; line-height: 50px; margin-right: 10px; }
+.bread-crumbs span { color: #999; }
+
+.search-box input, .search-box button { border: none; height: 30px; margin: 0; }
+.search-box input { width: 150px; padding: 0 10px; }
+.search-box button { padding: 0 20px; }
+
+.footer { text-align: center; padding: 30px 20px 50px 20px; color: #eee; background-color: #383D45; }
 
 .wrap { min-height: 800px; }
 
@@ -525,7 +542,7 @@ textarea { resize: none; }
 .aside { width: 20%; }
 
 .header { color: #fff; }
-.header h1 strong { font-size: 20px; }
+.header h1 strong { font-size: 26px; }
 
 .nav { margin-left: 20px; }
 .nav li.nav-item, .nav a { height: 50px; line-height: 50px; }
@@ -544,7 +561,7 @@ textarea { resize: none; }
 .article-list dl { position: relative; }
 .article-list dt { position: absolute; left: 0; top: 0; width: 200px; }
 .article-list dd { height: 200px; margin-left: 220px; }
-.article-list li { border-bottom: 1px solid #eee; padding: 20px 0; }
+.article-list li { border-bottom: 1px solid #eee; padding: 0 0 20px 0; margin-bottom: 20px; }
 .article-list .img { margin-right: 20px; }
 .article-list .img img, .article-list .img { width: 200px; height: 200px; }
 .article-list .title { height: 40px; font-weight: bold; font-size: 23px; }
@@ -565,7 +582,7 @@ textarea { resize: none; }
 .article-info strong { margin-right: 10px; }
 .article-info span { margin-right: 5px; }
 
-.wrap { margin: 10px; }
+.wrap { margin: auto; width: 80%; }
 
 .main { background-color: #fff; }
 
@@ -574,4 +591,4 @@ textarea { resize: none; }
 .error pre { width: 60%; border: 1px solid #ccc; border-radius: 3px; padding: 30px; margin: auto; }
 
 .tags a { padding: 5px; margin: 0 5px 5px 0px; border: 1px solid #ccc; border-radius: 3px; color: #333; }
-.tags a:hover { background-color: #314D68; color: #fff; }
+.tags a:hover { background-color: #383D45; color: #fff; }

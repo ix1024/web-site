@@ -8,6 +8,10 @@ $headerHeight: 50px;
 	height: $headerHeight;
 	background-color: $mainColor;
 
+	.wrap {
+		min-height: inherit;
+	}
+
 	strong {
 		@extend .fl;
 		height: $headerHeight;
@@ -15,8 +19,70 @@ $headerHeight: 50px;
 		margin-left: 20px;
 	}
 
+	span {
+		color: #6f9a37;
+	}
+
 	a {
 		color: #fff;
+	}
+
+	.search-box {
+		margin-top: 10px;
+		margin-left: 50px;
+	}
+
+	.btn-2 {
+		padding: 0px 10px;
+
+		&:hover {
+			color: $mainColor;
+			background-color: #fff;
+			opacity: 1;
+		}
+
+	}
+
+}
+
+.bread-crumbs {
+	@extend .clearfix;
+
+	.wrap {
+		min-height: inherit;
+		border-bottom: 1px solid #f2f2f2;
+	}
+
+	a,
+	em,
+	span {
+		@extend .fl;
+		height: 50px;
+		line-height: 50px;
+		margin-right: 10px;
+	}
+
+	span {
+		color: #999;
+	}
+
+}
+
+.search-box {
+	input,
+	button {
+		border: none;
+		height: 30px;
+		margin: 0;
+	}
+
+	input {
+		width: 150px;
+		padding: 0 10px;
+	}
+
+	button {
+		padding: 0 20px;
 	}
 
 }
@@ -48,7 +114,7 @@ $headerHeight: 50px;
 
 	h1 {
 		strong {
-			font-size: 20px;
+			font-size: 26px;
 		}
 
 	}

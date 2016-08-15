@@ -4,7 +4,7 @@ var config = require('../../config');
 var response = config.response;
 var utils = require('npm-utils-kingwell');
 
-var Article = require('../../routes/model/acticle');
+var Article = require('../../routes/model/article');
 var findArticle = function(callback) {
 	Article.find({}, function(err, docs) {
 		callback(err, docs);

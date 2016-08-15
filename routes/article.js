@@ -5,7 +5,34 @@ var config = require('../config');
 var utils = require('npm-utils-kingwell');
 var response = config.response;
 
-var Article = require('../routes/model/acticle');
+var Article = require('../routes/model/article');
+router.get('/', function(req, res, next) {
+	Article
+		.find()
+		.limit(10)
+		.sort({
+			date: -1
+		})
+		.exec(function(err, docs) {
+			res.render('article/list', {
+				title: config.site.name,
+				utils: utils,
+				nav: config.nav,
+				breadCrunmbs: [{
+					text: 'article',
+					url: '/article'
+				}, {
+					text: '文章列表'
+				}],
+				data: {
+					user: req.session.user || '',
+					//articelCount: docs,
+					articelList: docs
+				}
+			});
+		});
+
+});
 /* GET home page. */
 router.get('/:id', function(req, res, next) {
 
@@ -62,10 +89,16 @@ router.get('/:id', function(req, res, next) {
 			if (req.query.debug === 'true') {
 				res.send(data);
 			} else {
-				res.render('article', {
+				res.render('article/article', {
 					title: config.site.name,
 					utils: utils,
 					nav: config.nav,
+					breadCrunmbs: [{
+						text: 'article',
+						url: '/article'
+					}, {
+						text: utils.slice(articleData[0].title, 100)
+					}],
 					data: {
 						user: req.session.user || '',
 						articelCount: data[0],

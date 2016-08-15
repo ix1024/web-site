@@ -4,7 +4,7 @@ var User = require('./model/user'); //mongoose.model('Article', {});
 var config = require('../config');
 var utils = require('npm-utils-kingwell');
 var response = config.response;
-var Article = require('../routes/model/acticle');
+var Article = require('../routes/model/article');
 
 router.get('/web/:id', function(req, res, next) {
 	var id = req.params.id;

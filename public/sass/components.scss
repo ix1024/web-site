@@ -1,0 +1,100 @@
+@import 'global';
+@import 'mixin';
+$componentsWidthAside: 180px;
+$componentsWidthBody: 90%;
+
+.components-banner {
+	position: relative;
+	height: 200px;
+	background-color: #00bcd4;
+	color: #fff;
+	overflow: hidden;
+
+	.bg {
+		width: 120%;
+		height: 120%;
+		position: absolute;
+		left: -10%;
+		top: -10%;
+		z-index: 0;
+		background-image: url(images/01.jpg);
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		@include filter(blur(20px));
+	}
+
+	.wrap {
+		position: relative;
+		z-index: 1;
+		min-height: inherit;
+	}
+
+	.title {
+		font-size: 30px;
+	}
+
+}
+
+.components {
+	position: relative;
+	margin: 10px 0;
+	@extend .clearfix;
+
+	.components-aside {
+		width: $componentsWidthAside;
+		position: absolute;
+		left: 0;
+		top: 0;
+		@extend .fl;
+		font-size: 14px;
+		border-right: 1px solid #ddd;
+
+		a {
+			display: block;
+			margin: 0 10px;
+			color: #999;
+		}
+
+		dl {
+			margin-bottom: 20px;
+		}
+
+		dt {
+			font-weight: bold;
+			border-left: 2px solid #ccc;
+			color: #666;
+			text-indent: 10px;
+		}
+
+		dd {
+			margin-top: 10px;
+		}
+
+		li {
+			line-height: 25px;
+		}
+
+		.select {
+			background-color: $mainColor;
+
+			a {
+				color: #fff;
+			}
+
+		}
+
+	}
+
+	.components-body {
+		//@extend .fl;
+		margin-left: $componentsWidthAside+20;
+		//width: $componentsWidthBody;
+	}
+
+	h1 {
+		font-size: 20px;
+		border-bottom: 1px solid #ddd;
+		padding: 10px 0;
+	}
+
+}

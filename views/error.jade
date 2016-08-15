@@ -1,11 +1,10 @@
-extends layout
-
+extends layout/layout
 block content
-	include _header
+	include layout/_header
 	div(class="wrap")
 		div(class="error")
 			h1
 				strong= message
 			h2= error.status
 			pre #{error.stack}
-	include _footer
+	include layout/_footer

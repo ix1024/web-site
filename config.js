@@ -2,27 +2,22 @@
 
 var config = {
 	site: {
-		name: 'Front-end laboratory',
+		name: '前端实验室',
+		subName: 'Laboratory',
 		host: ''
 	},
 	nav: [{
 		text: '首页',
 		url: '/'
 	}, {
-		text: 'HTML',
-		url: '/web/html'
+		text: '技术文章',
+		url: '/article'
 	}, {
-		text: 'CSS',
-		url: '/web/css'
-	}, {
-		text: 'Javascript',
-		url: '/web/js'
-	}, {
-		text: 'Mongodb',
-		url: '/web/mongodb'
-	}, {
-		text: '工具',
+		text: 'Tools',
 		url: '/web/tools'
+	}, {
+		text: 'Components',
+		url: '/components'
 	}],
 	classification: ['HTML', 'CSS3', 'SASS', 'Javascript', 'Nodejs', 'BigPipe', 'Backbone', 'Mongondb', 'Grunt'],
 	response: function(options) {

@@ -1,8 +1,8 @@
-extends ../layout
-block content			
-	include ../_header	
-	div.wrap	 
+extends ../layout/layout
+block content
+	include ../layout/_header
+	include ../layout/_bread-crumbs
+	div(class="wrap block-margin")
 		include _list
-	include ../_footer
 block scripts
 	script(src="/javascripts/src/index.js")

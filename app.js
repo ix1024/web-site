@@ -21,6 +21,7 @@ var routes = {
   users: require('./routes/users'), //用户-登录，注册
   demo: require('./routes/demo'),
   web: require('./routes/web'), //web
+  components: require('./routes/components'), //components
   upload: require('./routes/api/upload'), //上传
   file: require('./routes/api/file'), //上传
   admin: require('./routes/admin/admin') //后台
@@ -64,6 +65,7 @@ app.use('/logout', function(req, res, next) {
 
 app.use('/', routes.index);
 app.use('/article', routes.article);
+app.use('/components', routes.components);
 app.use('/admin', routes.admin);
 app.use('/', routes.web);
 app.use('/', routes.users);

@@ -1,0 +1,43 @@
+extends ../layout/layout
+block stylesheets
+	link(rel="stylesheet", href="/stylesheets/components.css")
+block content
+	include ../layout/_header	
+	div(class="components-banner")
+		div(class="bg")
+		div(class="wrap")
+			strong(class="title") web components
+	include ../layout/_bread-crumbs
+	div(class="wrap")
+		div(class="components block-margin")
+			div(class="components-aside")
+				dl
+					dt 基本components
+					dd 
+						ul
+							li(class="select")
+								a(href="") 日历组件
+							li
+								a(href="") JQuery组件
+							li
+								a(href="") 轮播组件
+							li
+								a(href="") 提示组件
+							li
+								a(href="") 弹框组件
+				dl
+					dt 开发规范
+					dd 
+						ul
+							li
+								a(href="") Javascript规范
+							li
+								a(href="") HTML规范
+							li
+								a(href="") CSS规范
+							li
+								a(href="") 提示组件
+							li
+								a(href="") 弹框组件
+			div(class="components-body")
+				h1 组件规范

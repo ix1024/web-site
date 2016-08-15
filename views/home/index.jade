@@ -1,0 +1,11 @@
+extends ../layout/layout
+block content			
+	include ../layout/_header
+	div(class="wrap block-margin")
+		div(class="main")
+			include ../article/_list
+		div(class="aside")
+			include ../layout/aside			
+block scripts
+	script(src="/javascripts/src/index.js")
+

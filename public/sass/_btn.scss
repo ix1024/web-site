@@ -2,7 +2,7 @@
 	display: inline-block;
 	cursor: pointer;
 	border-radius: nth($radius, 1);
-	border:none;
+	border: none;
 	@extend .transition;
 
 	&:hover {
@@ -16,4 +16,10 @@
 	margin: 0 5px;
 	background-color: $mainColor;
 	color: #fff;
+}
+
+.btn-2 {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ccc;
 }

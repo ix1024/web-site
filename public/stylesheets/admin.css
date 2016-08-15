@@ -447,7 +447,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .btn { display: inline-block; cursor: pointer; border-radius: 3px; border: none; }
 .btn:hover { opacity: 0.7; }
 
-.btn-1 { padding: 5px 10px; margin: 0 5px; background-color: #314D68; color: #fff; }
+.btn-1 { padding: 5px 10px; margin: 0 5px; background-color: #383D45; color: #fff; }
+
+.btn-2 { border-style: solid; border-width: 1px; border-color: #ccc; }
 
 /*
 ** ==========  ==========
@@ -504,13 +506,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 body { font-size: 14px; font: normal normal 12px/1.5 Arial, "Microsoft YaHei"; }
 
 a { text-decoration: none; color: #333; }
-a:hover { color: #314D68; }
+a:hover { color: #383D45; }
 
 textarea { resize: none; }
 
 .form-group .form-group-item { margin: 10px 0; }
 .form-group .btn-box { text-align: right; }
 .form-group .btn { padding: 10px 20px; font-size: 14px; }
+
+div.block-margin { margin-top: 20px; }
 
 html, body { height: 100%; background-color: #eee; }
 

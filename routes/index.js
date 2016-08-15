@@ -4,11 +4,16 @@ var mongoose = require('mongoose');
 var config = require('../config');
 var utils = require('npm-utils-kingwell');
 var response = config.response;
-var Article = require('../routes/model/acticle');
-var findArticle = function(callback) {
-	Article.find({}, function(err, docs) {
-		callback(err, docs);
-	});
+var Article = require('../routes/model/article');
+var findArticle = function(callback, num) {
+	Article
+		.find({}, function(err, docs) {
+			callback(err, docs);
+		})
+		.limit(num || null)
+		.sort({
+			'date': -1
+		});
 };
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -20,27 +25,33 @@ router.get('/', function(req, res, next) {
 
 	var tag = function() {
 		return new Promise(function(resolve, reject) {
-			findArticle(function(err, docs) {
-				if (err) {
-					reject(err);
-				} else {
-					resolve(docs);
-				}
 
-			});
+			Article
+				.find(null, 'tag')
+				.sort({
+					date: -1
+				})
+				.limit(10)
+				.exec(function(err, docs) {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(docs);
+					}
+				});
 		});
 	};
 	var count = function() {
 		return new Promise(function(resolve, reject) {
-			Article.count({}, function(err, num) {
-				//console.log(num);
-				if (err) {
-					reject(err);
-				} else {
-					resolve(num);
-				}
+			Article
+				.count({}, function(err, num) {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(num);
+					}
 
-			});
+				});
 		});
 	};
 	var find = function() {
@@ -51,17 +62,19 @@ router.get('/', function(req, res, next) {
 				} else {
 					resolve(docs);
 				}
-			});
+			}, 10);
 		});
 	};
 	var findLast = function() {
 		return new Promise(function(resolve, reject) {
 			Article
-				.find({})
-				//.where('data')
+				.find(null, 'title')
+				.sort({
+					date: -1
+				})
+				.limit(5)
 				.exec(function(err, docs) {
-					console.log(err);
-					console.log(docs);
+
 					if (err) {
 						reject(err);
 					} else {
@@ -80,6 +93,7 @@ router.get('/', function(req, res, next) {
 			findLast()
 		]);
 	};
+
 	result()
 		.then(function(data) {
 
@@ -100,7 +114,7 @@ router.get('/', function(req, res, next) {
 			if (req.query.debug === 'true') {
 				res.send(data);
 			} else {
-				res.render('index', {
+				res.render('home/index', {
 					title: config.site.name,
 					user: req.session.user,
 					utils: utils,
@@ -110,7 +124,7 @@ router.get('/', function(req, res, next) {
 						articelCount: data[0],
 						articelList: JSON.parse(JSON.stringify(data[1])),
 						classification: config.classification,
-						lastArticleList: JSON.parse(JSON.stringify(data[2])),
+						lastArticleList: JSON.parse(JSON.stringify(data[3])),
 						tags: tags
 					}
 				});

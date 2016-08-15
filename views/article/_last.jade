@@ -1,4 +1,5 @@
 ul
 -var lastArticleList = data.lastArticleList||[0,1];
 -for(var last=0;last<lastArticleList.length;last++)
-	li=utils.slice(lastArticleList[last].title,20)
+	li
+		a(href="/article/"+lastArticleList[last]._id,target="_blank")=utils.slice(lastArticleList[last].title,20)

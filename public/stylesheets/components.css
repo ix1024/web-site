@@ -454,12 +454,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /*
 ** ==========  ==========
 */
-.clearfix:before, .clearfix:after { clear: both; content: '.'; display: block; height: 0; line-height: 0; overflow: hidden; }
-.clearfix { zoom: 1; }
+.clearfix:before, .components:before, .clearfix:after, .components:after { clear: both; content: '.'; display: block; height: 0; line-height: 0; overflow: hidden; }
+.clearfix, .components { zoom: 1; }
 
 .clear { clear: both; height: 0; line-height: 0; overflow: hidden; }
 
-.fl { float: left; _display: inline; }
+.fl, .components .components-aside { float: left; _display: inline; }
 
 .fr { float: right; _display: inline; }
 
@@ -516,14 +516,19 @@ textarea { resize: none; }
 
 div.block-margin { margin-top: 20px; }
 
-html, body { background-color: #207c88; }
+.components-banner { position: relative; height: 200px; background-color: #00bcd4; color: #fff; overflow: hidden; }
+.components-banner .bg { width: 120%; height: 120%; position: absolute; left: -10%; top: -10%; z-index: 0; background-image: url(images/01.jpg); background-repeat: no-repeat; background-size: 100% 100%; -webkit-filter: blur(20px); filter: blur(20px); }
+.components-banner .wrap { position: relative; z-index: 1; min-height: inherit; }
+.components-banner .title { font-size: 30px; }
 
-.login-box, .register-box { width: 400px; padding: 0; margin: 20px auto; background-color: #fff; }
-.login-box .header, .register-box .header { padding: 20px; text-align: center; background-color: #004977; color: #fff; font-size: 30px; }
-.login-box .input, .login-box .textarea, .register-box .input, .register-box .textarea { width: 200px; }
-.login-box .input, .register-box .input { padding: 0 10px; }
-.login-box .textarea, .register-box .textarea { padding: 10px; }
-
-.login-box label { display: inline-block; width: 100px; text-align: right; }
-.login-box label, .login-box input { vertical-align: middle; }
-.login-box .form-group { padding: 50px 0; }
+.components { position: relative; margin: 10px 0; }
+.components .components-aside { width: 180px; position: absolute; left: 0; top: 0; font-size: 14px; border-right: 1px solid #ddd; }
+.components .components-aside a { display: block; margin: 0 10px; color: #999; }
+.components .components-aside dl { margin-bottom: 20px; }
+.components .components-aside dt { font-weight: bold; border-left: 2px solid #ccc; color: #666; text-indent: 10px; }
+.components .components-aside dd { margin-top: 10px; }
+.components .components-aside li { line-height: 25px; }
+.components .components-aside .select { background-color: #383D45; }
+.components .components-aside .select a { color: #fff; }
+.components .components-body { margin-left: 200px; }
+.components h1 { font-size: 20px; border-bottom: 1px solid #ddd; padding: 10px 0; }

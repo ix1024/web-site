@@ -1,4 +1,5 @@
 @import 'compass/reset';
+@import "compass/css3/filter";
 @import 'mixin';
 @import 'width';
 @import 'margin-padding';
@@ -155,4 +156,8 @@ textarea {
 		//width: 100%;
 	}
 
+}
+
+div.block-margin {
+	margin-top: 20px;
 }
