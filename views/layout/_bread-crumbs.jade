@@ -3,8 +3,9 @@ div(class="bread-crumbs")
 		a(href="/") 首页
 		- var breadCrunmbs = locals.breadCrunmbs||[];
 		- for(var breadCrunmbsIndex=0;breadCrunmbsIndex<breadCrunmbs.length;breadCrunmbsIndex++)
-			em &gt;
-			if(breadCrunmbs[breadCrunmbsIndex].url)
-				a(href=breadCrunmbs[breadCrunmbsIndex].url)=breadCrunmbs[breadCrunmbsIndex].text
-			else
-				span=breadCrunmbs[breadCrunmbsIndex].text
+			if(breadCrunmbs[breadCrunmbsIndex].text)			
+				em &gt;
+				if(breadCrunmbs[breadCrunmbsIndex].url)
+					a(href=breadCrunmbs[breadCrunmbsIndex].url)=breadCrunmbs[breadCrunmbsIndex].text
+				else
+					span=breadCrunmbs[breadCrunmbsIndex].text

@@ -7,8 +7,14 @@ var response = config.response;
 
 var Article = require('../routes/model/article');
 router.get('/', function(req, res, next) {
+	var type = req.query.type || '';
+	var typeQuery = type ? '(' + type + ')' : '';
+	var queryObj = type ? {
+		classification: type
+	} : {};
 	Article
 		.find()
+		.where(queryObj)
 		.limit(10)
 		.sort({
 			date: -1
@@ -16,16 +22,19 @@ router.get('/', function(req, res, next) {
 		.exec(function(err, docs) {
 			res.render('article/list', {
 				title: config.site.name,
+				user: req.session.user,
 				utils: utils,
 				nav: config.nav,
 				breadCrunmbs: [{
 					text: 'article',
 					url: '/article'
 				}, {
+					text: type,
+					url: '/article?type=' + type
+				}, {
 					text: '文章列表'
 				}],
 				data: {
-					user: req.session.user || '',
 					//articelCount: docs,
 					articelList: docs
 				}
@@ -92,6 +101,7 @@ router.get('/:id', function(req, res, next) {
 				res.render('article/article', {
 					title: config.site.name,
 					utils: utils,
+					user: req.session.user,
 					nav: config.nav,
 					breadCrunmbs: [{
 						text: 'article',

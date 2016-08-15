@@ -516,6 +516,8 @@ textarea { resize: none; }
 
 div.block-margin { margin-top: 20px; }
 
+mark { background-color: orange; color: #fff; }
+
 .components-banner { position: relative; height: 200px; background-color: #00bcd4; color: #fff; overflow: hidden; }
 .components-banner .bg { width: 120%; height: 120%; position: absolute; left: -10%; top: -10%; z-index: 0; background-image: url(images/01.jpg); background-repeat: no-repeat; background-size: 100% 100%; -webkit-filter: blur(20px); filter: blur(20px); }
 .components-banner .wrap { position: relative; z-index: 1; min-height: inherit; }

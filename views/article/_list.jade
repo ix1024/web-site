@@ -10,7 +10,7 @@ ul(class="article-list")
 					img(src="/images/logo_JavaScript.png", alt="")
 				dd
 					h1(class="title")
-						a(href=url,target="_blank")=utils.slice(articleItem.title,50)
+						a(href=url,target="_blank")!=articleItem.title
 					div(class="info clearfix")
 						div(class="fl")
 							span 作者：

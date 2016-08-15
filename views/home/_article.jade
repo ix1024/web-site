@@ -2,4 +2,4 @@ ul
 	-var classification= data.classification||[];
 	- for(var a=0;a<classification.length; a++)
 		li
-			a(href="/classification/"+classification[a])=classification[a]
+			a(href="/article?type="+classification[a])=classification[a]

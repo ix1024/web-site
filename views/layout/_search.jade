@@ -1,3 +1,4 @@
 div(class="search-box")
-	input(type="text")
-	button(type="submit") Search
+	form(action="/search")
+		input(type="text",name="keyword",value=locals.keyword)
+		button(type="submit") Search

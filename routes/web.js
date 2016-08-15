@@ -37,26 +37,26 @@ router.get('/tag/:id', function(req, res, next) {
 		});
 
 });
-router.get('/classification/:id', function(req, res, next) {
-	var id = req.params.id;
-	utils.log(id);
-	var r = '' + id + '';
-	var reg = RegExp(r, 'ig');
-	Article
-		.find({})
-		.where('classification', reg)
-		.exec(function(err, docs) {
-			res.render('article/list', {
-				user: req.session.user,
-				title: config.site.name,
-				utils: utils,
-				data: {
-					articelList: docs
-				},
-				nav: config.nav
-			});
-		});
+// router.get('/classification/:id', function(req, res, next) {
+// 	var id = req.params.id;
+// 	utils.log(id);
+// 	var r = '' + id + '';
+// 	var reg = RegExp(r, 'ig');
+// 	Article
+// 		.find({})
+// 		.where('classification', reg)
+// 		.exec(function(err, docs) {
+// 			res.render('article/list', {
+// 				user: req.session.user,
+// 				title: config.site.name,
+// 				utils: utils,
+// 				data: {
+// 					articelList: docs
+// 				},
+// 				nav: config.nav
+// 			});
+// 		});
 
-});
+// });
 
 module.exports = router;

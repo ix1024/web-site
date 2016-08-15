@@ -516,6 +516,8 @@ textarea { resize: none; }
 
 div.block-margin { margin-top: 20px; }
 
+mark { background-color: orange; color: #fff; }
+
 .header { height: 50px; background-color: #383D45; }
 .header .wrap { min-height: inherit; }
 .header strong { height: 50px; line-height: 50px; margin-left: 20px; }
