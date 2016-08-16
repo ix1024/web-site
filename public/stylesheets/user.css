@@ -518,6 +518,8 @@ div.block-margin { margin-top: 20px; }
 
 mark { background-color: orange; color: #fff; }
 
+.gray { color: #999; }
+
 html, body { background-color: #207c88; }
 
 .login-box, .register-box { width: 400px; padding: 0; margin: 20px auto; background-color: #fff; }

@@ -6,6 +6,7 @@ var utils = require('npm-utils-kingwell');
 var response = config.response;
 
 var Article = require('../routes/model/article');
+var Comment = require('../routes/model/comment');
 router.get('/', function(req, res, next) {
 	var type = req.query.type || '';
 	var typeQuery = type ? '(' + type + ')' : '';
@@ -46,7 +47,47 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
 
 	var id = req.params.id;
-	var count = function() {
+
+	//获取评论
+	var getComment = function() {
+		return new Promise(function(resolve, reject) {
+			Comment
+				.find({
+					id: id
+				}, function(err, docs) {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(docs);
+					}
+
+				})
+				.sort({
+					date: -1
+				})
+				.limit(5);
+		});
+	};
+	//获取评论数量
+	var getCommentCount = function() {
+		return new Promise(function(resolve, reject) {
+			Comment
+				.find({
+					id: id
+				})
+				.count(function(err, docs) {
+					utils.log(docs, 'yellow');
+					if (err) {
+						reject(err);
+					} else {
+						resolve(docs);
+					}
+
+				});
+		});
+	};
+	//获取文章数量
+	var getArticleCount = function() {
 		return new Promise(function(resolve, reject) {
 			Article.count({}, function(err, num) {
 				//console.log(num);
@@ -59,7 +100,8 @@ router.get('/:id', function(req, res, next) {
 			});
 		});
 	};
-	var find = function() {
+	//获取文章列表
+	var getArticleList = function() {
 		return new Promise(function(resolve, reject) {
 			Article.find({
 				_id: req.params.id
@@ -75,13 +117,16 @@ router.get('/:id', function(req, res, next) {
 
 	var result = function() {
 		return Promise.all([
-			count(),
-			find()
+			getArticleCount(),
+			getArticleList(),
+			getComment(),
+			getCommentCount()
 		]);
 	};
 	result()
 		.then(function(data) {
 			var articleData = JSON.parse(JSON.stringify(data[1]));
+			var commentList = JSON.parse(JSON.stringify(data[2]));
 
 			Article.update({
 					_id: id
@@ -110,9 +155,11 @@ router.get('/:id', function(req, res, next) {
 						text: utils.slice(articleData[0].title, 100)
 					}],
 					data: {
-						user: req.session.user || '',
+						id: id,
 						articelCount: data[0],
-						result: articleData
+						result: articleData,
+						commentCount: data[3],
+						commentList: commentList
 					}
 				});
 			}

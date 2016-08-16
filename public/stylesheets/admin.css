@@ -518,6 +518,8 @@ div.block-margin { margin-top: 20px; }
 
 mark { background-color: orange; color: #fff; }
 
+.gray { color: #999; }
+
 html, body { height: 100%; background-color: #eee; }
 
 .home-page { overflow: hidden; }

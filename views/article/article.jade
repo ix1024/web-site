@@ -12,12 +12,26 @@ block content
 				strong=utils.getDateString(data.result[0].date)
 				span   阅读：
 				strong=strong=data.result[0].read+1
-			div(class="article-content")!=data.result[0].body		 
-	include ../layout/_footer
+			div(class="article-content")!=data.result[0].body
+		div(class="tag-box")
+			span 标签：
+			- var tags=data.result[0].tag.split(',')||[];
+			- for(var t=0;t<tags.length;t++)
+				a(href="/tag/"+tags[t],target="_blank")=tags[t]
+
+		include ../comment/_list
+		include ../comment/_send-comment
+		include ../comment/_template-list
+		br
+		br
+		br
+		br
+		br
+		//include ../test
 	script(src="/plugins/shBrushJScript/shCore.js")
 	script(src="/plugins/shBrushJScript/shBrushJScript.js")
 block scripts
 	link(rel="stylesheet", href="/plugins/shBrushJScript/shCore.css")
 	link(rel="stylesheet", href="/plugins/shBrushJScript/shCoreDefault.css")
 	
-	script(src="/javascripts/src/article.js")
+	script(src="/javascripts/src/article/article.js")

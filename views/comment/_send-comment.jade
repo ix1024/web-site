@@ -1,0 +1,10 @@
+- var user = locals.user||{};
+div(class="send-comment")
+	ul
+		li
+			input(type="hidden", name="id",value=locals.data.id,id="articleId")
+			input(class="input",type="text",name="who",value=user.userName||'匿名',disabled="true")
+		li
+			textarea(class="textarea",name="content", cols="30", rows="10")
+		li
+			button(class="btn btn-1",id="sendComment",name="") 提交

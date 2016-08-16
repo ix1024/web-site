@@ -1,7 +1,10 @@
 div(class="header-user")
-	if user
+	- var user = locals.user||{};
+	if user.userName
 		img(src="/images/user.jpg", alt="")
 		a(href="/admin")=(user&&user.userName)
 		a(href="/logout") 退出
 	else 
 		a(href="/login",class="btn btn-2") 登录
+		span 
+		a(href="/register",class="btn btn-2") 注册

@@ -4,3 +4,6 @@ try {
 		toolbar: false
 	});
 } catch (ev) {}
+require(['comment'], function() {
+
+});

@@ -454,12 +454,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /*
 ** ==========  ==========
 */
-.clearfix:before, .bread-crumbs:before, .wrap:before, .nav:before, .article-list li:before, .clearfix:after, .bread-crumbs:after, .wrap:after, .nav:after, .article-list li:after { clear: both; content: '.'; display: block; height: 0; line-height: 0; overflow: hidden; }
-.clearfix, .bread-crumbs, .wrap, .nav, .article-list li { zoom: 1; }
+.clearfix:before, .bread-crumbs:before, .wrap:before, .nav:before, .comment dl:before, .article-list li:before, .clearfix:after, .bread-crumbs:after, .wrap:after, .nav:after, .comment dl:after, .article-list li:after { clear: both; content: '.'; display: block; height: 0; line-height: 0; overflow: hidden; }
+.clearfix, .bread-crumbs, .wrap, .nav, .comment dl, .article-list li { zoom: 1; }
 
 .clear { clear: both; height: 0; line-height: 0; overflow: hidden; }
 
-.fl, .header strong, .bread-crumbs a, .bread-crumbs em, .bread-crumbs span, .main, .nav li.nav-item, .article-list .img { float: left; _display: inline; }
+.fl, .header strong, .bread-crumbs a, .bread-crumbs em, .bread-crumbs span, .main, .nav li.nav-item, .comment dt, .article-list .img { float: left; _display: inline; }
 
 .fr, .aside, .nav { float: right; _display: inline; }
 
@@ -518,6 +518,8 @@ div.block-margin { margin-top: 20px; }
 
 mark { background-color: orange; color: #fff; }
 
+.gray { color: #999; }
+
 .header { height: 50px; background-color: #383D45; }
 .header .wrap { min-height: inherit; }
 .header strong { height: 50px; line-height: 50px; margin-left: 20px; }
@@ -533,7 +535,7 @@ mark { background-color: orange; color: #fff; }
 
 .search-box input, .search-box button { border: none; height: 30px; margin: 0; }
 .search-box input { width: 150px; padding: 0 10px; }
-.search-box button { padding: 0 20px; }
+.search-box button { width: 80px; text-align: center; padding: 0; cursor: pointer; }
 
 .footer { text-align: center; padding: 30px 20px 50px 20px; color: #eee; background-color: #383D45; }
 
@@ -558,6 +560,23 @@ mark { background-color: orange; color: #fff; }
 .section { margin-bottom: 20px; }
 .section .section-title { font-size: 16px; }
 .section .section-content { margin-top: 10px; }
+
+.tag-box { color: #999; }
+.tag-box a { margin-right: 10px; }
+
+.comment { margin-top: 20px; }
+.comment .comment-title { font-size: 14px; margin-bottom: 20px; }
+.comment img { width: 50px; height: 50px; border-radius: 50%; }
+.comment dl { border-bottom: 1px dotted  #ccc; padding: 5px 0; margin-bottom: 10px; }
+.comment dt { width: 50px; }
+.comment dd { margin-left: 60px; }
+
+.send-comment { margin-top: 20px; }
+.send-comment li { margin: 10px 0px; }
+.send-comment .input { height: 40px; padding: 0 10px; }
+.send-comment .textarea { padding: 10px; }
+.send-comment .btn { padding: 5px 10px; }
+.send-comment .input, .send-comment .textarea { width: 500px; background-color: #fafafa; border: 1px solid #ccc; margin: 0; }
 
 .article-list { padding: 0 10px; }
 .article-list dl { position: relative; }

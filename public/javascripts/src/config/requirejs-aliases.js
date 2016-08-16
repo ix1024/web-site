@@ -1,6 +1,6 @@
 /*
   Requirejs配置文件
-  Last Updated:2016-08-11 04:08:43  
+  Last Updated:2016-08-16 11:08:56  
 */
 var fileVersion = {
     'require-text': '//static.huizecdn.com/js/plugins/require-text/text.min',
@@ -14,8 +14,9 @@ var fileVersion = {
     'my-calendar':'//static.huizecdn.com/js/plugins/my-calendar/build/my-calendar.min',
     'message':'//static.huizecdn.com/js/plugins/message/build/message',
     'webuploader':'http://static.huizecdn.com/js/plugins/webuploader/webuploader',
-    "admin": "/javascripts/src/admin.js?v=3dceb6b3670dce13eb8795fec298d299",
-    "article": "/javascripts/src/article.js?v=d41d8cd98f00b204e9800998ecf8427e",
+    "admin": "/javascripts/src/admin.js?v=2a05dcce681fa06bc06fd75f7d9ed5d0",
+    "article": "/javascripts/src/article/article.js?v=bcbb04f889271293867b6fcf088edd45",
+    "comment": "/javascripts/src/comment/comment.js?v=db1704bb602fc90c4832e05eb5eb4252",
     "demo": "/javascripts/src/demo.js?v=53174a48ba549c9ded0832486ed61461",
     "index": "/javascripts/src/index.js?v=d41d8cd98f00b204e9800998ecf8427e",
     "ajax": "/javascripts/src/kw/ajax.js?v=7afe35bd5fcb72c486f34eb84f61f9be",

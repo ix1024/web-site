@@ -6,10 +6,10 @@ var utils = require('npm-utils-kingwell');
 var response = config.response;
 
 /* GET users listing. */
-// router.get(':id', function(req, res, next) {
+// router.get('*', function(req, res, next) {
 
 // 	if (req.session.user) {
-// 		res.redirect('/admin');
+// 		res.redirect('/');
 // 	} else {
 // 		next();
 // 	}

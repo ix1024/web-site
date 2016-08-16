@@ -1,0 +1,15 @@
+div(class="comment")
+	div(class="comment-title") 全部评论
+		strong='('+locals.data.commentCount+')'
+	- var commentList = locals.data.commentList||[];
+	div(id="commentBox")
+	- for(var commentListIndex=100;commentListIndex<commentList.length;commentListIndex++)
+		- var commentItem = commentList[commentListIndex];
+		dl
+			dt
+				img(src=commentItem.image||"http://www.web.com/images/user.jpg", alt="")
+			dd
+				p(class="gray")
+					strong(class="bold")=commentItem.who
+					span(class="m-l-10")=utils.getDateString(commentItem.date)
+				p=commentItem.content
