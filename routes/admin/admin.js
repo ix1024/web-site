@@ -5,6 +5,8 @@ var response = config.response;
 var utils = require('npm-utils-kingwell');
 
 var Article = require('../../routes/model/article');
+var User = require('../../routes/model/user');
+
 var findArticle = function(callback) {
 	Article.find({}, function(err, docs) {
 		callback(err, docs);
@@ -34,13 +36,23 @@ router.get('/', function(req, res, next) {
 	});
 
 });
-router.get('/user-list', function(req, res, next) {
+router.get('/user', function(req, res, next) {
+	User.find({}, function(err, docs) {
 
-	res.render('admin/user', {
-		title: config.site.name
+		if (req.query.debug === 'true') {
+			res.send(docs);
+		} else {
+			res.render('user/_list', {
+				utils: utils,
+				userList: JSON.parse(JSON.stringify(docs))
+			});
+		}
+	}).sort({
+		date: -1
 	});
-
 });
+
+
 router.get('/list', function(req, res, next) {
 
 	// res.send({});

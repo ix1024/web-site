@@ -1,8 +1,9 @@
 div(class="header-user")
 	- var user = locals.user||{};
+	- var nickname = user.nickname||user.userName;
 	if user.userName
 		img(src="/images/user.jpg", alt="")
-		a(href="/admin")=(user&&user.userName)
+		a(href="/admin")=nickname
 		a(href="/logout") 退出
 	else 
 		a(href="/login",class="btn btn-2") 登录

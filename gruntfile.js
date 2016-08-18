@@ -26,7 +26,23 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		jsdoc: {
+			dist: {
+				src: ['public/javascripts/src'],
+				options: {
+					destination: 'doc'
+				}
+			}
+		},
 		watch: {
+			doc: {
+				files: [
+					'public/javascripts/src/**/*.js',
+					'!public/javascripts/src/requirejs-aliases.js',
+					'!public/javascripts/src/requirejs-config.js'
+				],
+				tasks: ['jsdoc']
+			},
 			config: {
 				files: [
 					'public/javascripts/src/**/*.js',
@@ -417,6 +433,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-zip');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-replace'); //打包所有
+
+	grunt.loadNpmTasks('grunt-jsdoc');
 	grunt.registerTask(
 		'default', [
 			/*'jshint:defaults,'*/

@@ -9,3 +9,56 @@ script(type="text/template",id="template")
 	|		<p><%=content%></p>
 	|	</dd>
 	|</dl>
+
+
+script(type="text/template",id="item-template")
+	|<td class="username">
+	|	<div class="display"><%=userName %><input type="hidden" name="id" value="<%=_id%>"/></div>
+	|	<div class="edit"><input class="input username" name="userName"></input></div>
+	|</td>
+	|<td class="nickname">
+	|	<div class="display"><%=nickname %></div>
+	|	<div class="edit"><input class="input nickname" name="nickname"></input></div>
+	|</td>
+	|<td class="username">
+	|	<div class="display"><%=password %><input type="hidden" name="id" value="<%=_id%>"/></div>
+	|	<div class="edit"><input class="input password" name="password"></input></div>
+	|</td>
+	|<td class="sex">
+	|	<div class="display"><%=sex==0 ? "女":"男" %></div>
+	|	<div class="edit">
+	|		<select name="sex" class="sex" value="<%=sex%>">
+	|			<option value="1">男</option><option value="0">女</option>
+	|		</select>
+	|	</div>
+	|</td>
+	|<td class="age">
+	|	<div class="display"><%=age||0 %></div>
+	|	<div class="edit">
+	|		<input class="input age" name="age"></input>
+	|	</div>
+	|</td>
+	|<td class="email">
+	|	<div class="display"><%=email %></div>
+	|	<div class="edit">
+	|		<input class="input email" name="email"></input>
+	|	</div>
+	|</td>
+	|<td class="lastLoginTime">
+	|	<div class="display"><%=lastLoginTime %></div>
+	|	<div class="edit">
+	|		<input class="input lastLoginTime" name="lastLoginTime"></input>
+	|	</div>
+	|</td>
+	|<td class="permission">
+	|	<div class="display"><%=permission %></div>
+	|	<div class="edit">
+	|		<select name="permission" class="permission" value="<%=permission%>">
+	|			<option value="admin">admin</option>
+	|			<option value="user">user</option>
+	|		</select>
+	|	</div>
+	|</td>
+	|<td>
+	|	<a href="#" class="del" data-id="<%=_id%>">删除</a>
+	|</td>

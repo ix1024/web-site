@@ -531,3 +531,12 @@ html, body { background-color: #207c88; }
 .login-box label { display: inline-block; width: 100px; text-align: right; }
 .login-box label, .login-box input { vertical-align: middle; }
 .login-box .form-group { padding: 50px 0; }
+
+.table-user-list { text-align: center; }
+.table-user-list td { height: 30px; vertical-align: middle; text-align: center; }
+.table-user-list .input { width: 50%; height: 25px; }
+
+.add-user { margin: 20px; }
+.add-user input { width: 100px; }
+.add-user select { width: 50px; }
+.add-user label, .add-user input, .add-user select { display: inline-block; vertical-align: middle; height: 25px; line-height: 25px; padding: 0; margin: 0 10px; }

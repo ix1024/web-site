@@ -28,7 +28,7 @@ var BlogPost = new Schema({
 	},
 	updateDate: {
 		type: Date,
-		default: '2015'
+		default: '0'
 	},
 	date: {
 		type: Date,

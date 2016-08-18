@@ -1,0 +1,105 @@
+extend layout
+block content
+	style
+		|	html,body{
+		|		height: 100%;
+		|		width : 100%;
+		|		margin: 0;
+		|		padding: 0;
+		|		font-size: 12px;
+		|	}
+		|	input.username{
+		|		width : 80px;
+		|	}
+		|	input.age{
+		|		width : 30px;
+		|	}
+		|	select.sex{
+		|		width : 45px;
+		|	}
+		|	.emp-table{
+		|		width: 100%;
+		|		text-align: center;
+		|	}
+		|	.emp-table tr{
+		|		height: 30px;
+		|	}
+		|	.emp-table td .edit{
+		|		display: none;
+		|	}
+		|	.emp-table td.editing .edit{
+		|		display: block;
+		|	}
+		|	.emp-table td.editing .display{
+		|		display: none;
+		|	}
+	link(rel="stylesheet", href="/stylesheets/admin.css")
+	div(id="emp-formd")
+		table(class="table emp-table table-user-list")
+			thead
+				tr
+					//th(class="user-id") ID
+					th(class="w-p-10 user-username") User Name
+					th(class="w-p-10 user-nickname") nickname
+					th(class="w-p-20 user-passowrd") Password
+					th(class="w-p-10 user-sex") Sex
+					th(class="w-p-10 user-age") Age
+					th(class="w-p-10 user-email") Email
+					th(class="w-p-10 user-last-login-time") lastLoginTime
+					th(class="w-p-10 user-permission") permission
+					th(class="w-p-10 user-eidt") Eidt
+			tbody
+	//- div
+	//- 	table(class="table ")
+	//- 		thead
+	//- 			tr
+	//- 				th UserName
+	//- 				th Password
+	//- 				th Sex
+	//- 				th Age
+	//- 				th Email
+	//- 				th Date
+	//- 				th updateDate
+	//- 				th lastLoginTime
+	//- 				th ip
+	//- 		- var userList = locals.userList||[];
+	//- 		- for(var userListIndex=0;[userListIndex]<userList.length;userListIndex++)
+	//- 			tr
+	//- 				td=userList[userListIndex].userName
+	//- 				td=userList[userListIndex].password
+	//- 				td=userList[userListIndex].sex?'男':'女'
+	//- 				td=userList[userListIndex].age || '0'
+	//- 				td=userList[userListIndex].email
+	//- 				td=utils.getDateString(userList[userListIndex].date)
+	//- 				td=utils.getDateString(userList[userListIndex].updateDate)
+	//- 				td=userList[userListIndex].ip
+	div(class="add-user")
+		|<p id="emp-form">
+		|	<label for="userName">姓名：</label>
+		|	<input id="userName" class="username" name="userName"/>
+		|	<label for="nickname">nickname：</label>
+		|	<input id="nickname" class="nickname" name="nickname"/>
+		|	<label for="password">密码：</label>
+		|	<input id="password" class="password" name="password"/>
+		|	<label for="sex">性别：</label>
+		|	<select id="sex" name="sex" class="sex">
+		|		<option value="0">男</option>
+		|		<option value="1">女</option>
+		|	</select>
+		|	<label for="age">年龄：</label>
+		|	<input id="age" name="age" class="age"/>
+		|	<label for="email">Email：</label>
+		|	<input id="email" name="email" class="email"/>
+		|	<label for="permission">权限：</label>
+		|	<select name="permission" value="admin">
+		|		<option value="admin">Admin</option>
+		|		<option value="user">User</option>
+		|	</select>
+		|	<button id="add-btn">增加</button>
+		|</p>
+	include ../comment/_template-list
+block scripts
+	script
+		|require(['admin-user'],function(){
+
+		})

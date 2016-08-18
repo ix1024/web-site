@@ -25,6 +25,7 @@ var routes = {
   components: require('./routes/components'), //components
   upload: require('./routes/api/upload'), //上传
   file: require('./routes/api/file'), //上传
+  userApi: require('./routes/api/user'), //上传
   articleApi: require('./routes/api/article'), //上传
   admin: require('./routes/admin/admin') //后台
 };
@@ -75,6 +76,7 @@ app.use('/', routes.users);
 app.use('/demo', routes.demo);
 app.use('/api/upload', routes.upload);
 app.use('/api/article', routes.articleApi);
+app.use('/api/user', routes.userApi);
 app.use('/file', routes.file);
 
 // catch 404 and forward to error handler

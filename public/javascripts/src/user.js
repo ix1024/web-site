@@ -1,7 +1,7 @@
 define(['jquery'], function($) {
-	if (top !== window) {
-		top.location.reload();
-	}
+	// if (top !== window) {
+	// 	top.location.reload();
+	// }
 	$('#loginSubmit').on('click', function() {
 		$.ajax({
 			url: 'get-login',
