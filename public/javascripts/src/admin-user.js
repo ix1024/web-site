@@ -37,7 +37,7 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 		events: {
 			"dblclick td": "edit",
 			"blur input,select": "close",
-			"click .del": "clear",
+			"click .del": "clear"
 		},
 		initialize: function() {
 			// 每次更新模型后重新渲染  
@@ -111,7 +111,7 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 		createOnEnter: function(e) {
 
 			var employee = new Employee({
-				url: '/api/user/user',
+				url: '/api/user/user'
 			});
 			var attr = {
 				_id: null,

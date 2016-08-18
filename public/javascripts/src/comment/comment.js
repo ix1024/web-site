@@ -18,96 +18,84 @@ define([
 	var $parent = $('.send-comment');
 	var id = $('#articleId').val();
 
-
 	var Comment = Backbone.Model.extend({
-		url: '/api/article/send-comment/' + id,
+		urlRoot: '/api/article/send-comment/' + id,
 		initialize: function() {
-			console.info('model initialize');
-			this.bind('invalid', function(model, error) {
-				console.error(error);
+			this.on('invalid', function(model, err) {
+				alert(err);
 			});
 		},
 		validate: function(attributes) {
-			var result = '';
-			if (attributes.who === '') {
-				result = '名字不能为空';
+
+			for (var key in attributes) {
+				if (attributes[key] === '') {
+					return key + '不能为空';
+				}
 			}
-			if (attributes.content === '') {
-				result = '内容不能为空';
-			}
-			return result;
 		}
 	});
+
 	var CommentList = Backbone.Collection.extend({
 		model: Comment,
-		url: '/api/article/get-comment/' + id,
-		initialize: function(module, options) {
-			//this.bidn('add', options.view.addOneWorld);
-		}
+		url: '/api/article/get-comment/' + id
 	});
-	var Comments = new CommentList;
+
+	var Comments = new CommentList();
+
 
 	var CommentView = Backbone.View.extend({
-		//tagName: 'div',
 		template: _.template($('#template').html()),
 		initialize: function() {
 			this.model.bind('change', this.render, this);
-			this.model.bind('destroy', this.remove, this);
 		},
 		render: function() {
-			console.log(this.template(this.model.toJSON()));
 			$(this.el).html(this.template(this.model.toJSON()));
 			return this;
-		},
-		remove: function() {}
+		}
 	});
 
 	var AppView = Backbone.View.extend({
 		el: $('body'),
-		events: {
-			"click #sendComment": "createOnEnter"
-		},
 		initialize: function() {
 			Comments.bind('add', this.addOne, this);
-			// 调用fetch的时候触发reset
+			// 调用fetch的时候触发reset  
 			Comments.bind('reset', this.addAll, this);
 			Comments.fetch();
-
+		},
+		events: {
+			'click #sendComment': 'createOnEnter'
 		},
 		createOnEnter: function() {
-			var comment = new Comment;
+			var comment = new Comment({
+				url: '/api/article/send-comment/' + id
+			});
+			var attr = {
+				date: new Date(),
+				who: $('[name="who"]').val(),
+				content: $('[name="content"]').val()
+			};
 
-			var $parent = $('.send-comment');
-			var id = $('#articleId').val();
-			var who = $parent.find('[name="who"]').val();
-			var content = $parent.find('[name="content"]').val();
-			if (comment.set({
-					who: who,
-					content: content,
-					date: Date.now()
+			comment.bind('error', function(model, error) {
+				console.log(error);
+			});
+			// set方法中会自动调用model的validate方法进行校验，如果不通过则返回false  			 
+			if (comment.set(attr, {
+					validate: true
 				})) {
 				Comments.create(comment);
 			}
+
 		},
 		addOne: function(comment) {
-			comment.set({
-				"eid": comment.get("eid") || Comments.length
-			});
-			comment.bind('error', function(model, error) {
-				alert(error);
-			});
 			var view = new CommentView({
 				model: comment
 			});
-			$(".comment-title").append(view.render().el);
+			$('#commentBox').after(view.render().el);
 		},
-
 		addAll: function() {
-			console.log(Comments.length);
 			Comments.each(this.addOne);
 		}
 	});
 	new AppView();
-
 
 });

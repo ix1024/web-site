@@ -7,16 +7,26 @@ var response = config.response;
 
 var Article = require('../../routes/model/article');
 var Comment = require('../../routes/model/comment');
+var User = require('../../routes/model/user');
 router.all('/get-comment/:id', function(req, res, next) {
 	Comment.find({
-		id: req.params.id
-	}, function(err, docs) {
-		console.log(err, docs);
-		if (err) {
+			id: req.params.id
+		}, function(err, docs) {
 
-		}
-		res.send(docs);
-	});
+			var list = [];
+			docs.forEach(function(item) {
+				list.push({
+					who: item.who,
+					date: item.date,
+					content: item.content
+				});
+			});
+			res.send(list);
+		})
+		.sort({
+			date: -1
+		})
+		.limit(5);
 });
 router.all('/remove-comment', function(req, res, next) {
 	Comment.remove({}, function(err, docs) {
