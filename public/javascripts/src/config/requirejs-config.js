@@ -1,6 +1,6 @@
 /*
   Requirejs配置文件
-  Last Updated:2016-08-18 10:08:54  
+  Last Updated:2016-08-19 10:08:30  
 */
 var fileVersion = {
     'require-text': '//static.huizecdn.com/js/plugins/require-text/text.min',
@@ -14,10 +14,11 @@ var fileVersion = {
     'my-calendar':'//static.huizecdn.com/js/plugins/my-calendar/build/my-calendar.min',
     'message':'//static.huizecdn.com/js/plugins/message/build/message',
     'webuploader':'http://static.huizecdn.com/js/plugins/webuploader/webuploader',
-    "admin-user": "/javascripts/src/admin-user.js?v=d41d8cd98f00b204e9800998ecf8427e",
-    "admin": "/javascripts/src/admin.js?v=2a05dcce681fa06bc06fd75f7d9ed5d0",
+    "admin-user": "/javascripts/src/admin-user.js?v=15a5eb52b365626f89ec414e30e67f54",
+    "admin": "/javascripts/src/admin.js?v=87d2e6f00eaf57f16e47ac7ee78efc0b",
     "article": "/javascripts/src/article/article.js?v=d6f6eb6cac989e2fbbc0aa741eaa9b8a",
-    "comment": "/javascripts/src/comment/comment.js?v=93cd370a264bfa08cb2f3bb0d4497573",
+    "my-utils": "/javascripts/src/com/my-utils.js?v=6ee4012e66cce7e0c245b177866d067d",
+    "comment": "/javascripts/src/comment/comment.js?v=fe1432ab6fef229aa71c048c4d5edd16",
     "demo": "/javascripts/src/demo.js?v=53174a48ba549c9ded0832486ed61461",
     "doc": "/javascripts/src/doc.js?v=43c0b6efbce3a10eb39d0a4bf26c2b2c",
     "index": "/javascripts/src/index.js?v=d41d8cd98f00b204e9800998ecf8427e",
@@ -30,10 +31,11 @@ var fileVersion = {
     "backbone": "/javascripts/src/lib/backbone.js?v=8a8d829617513f36185a0ab055d088ec",
     "es5-shim.min": "/javascripts/src/lib/es5-shim.min.js?v=57a4e2bf37de5dcf5463a8339f1675a7",
     "jquery": "/javascripts/src/lib/jquery.js?v=cd8b0bffc85bb5614385ee4ce3596d07",
+    "json2-ie8": "/javascripts/src/lib/json2-ie8.js?v=6e411ef68e8eaaabb557562474086ad6",
     "require": "/javascripts/src/lib/require.js?v=6bd2f88aafdbf67d47f03d6eac64ddc7",
     "underscore": "/javascripts/src/lib/underscore.js?v=f893e294cde60c2462cb19b35aac431b",
     "tab": "/javascripts/src/tab.js?v=2b57809116f97ef13e66762bc79cda30",
-    "user": "/javascripts/src/user.js?v=84b641748d88decb3f6e86808c6345e3"
+    "user": "/javascripts/src/user.js?v=84a53495c75c55c479180de9dacac4e0"
 };
 requirejs.config({
     baseUrl: '',

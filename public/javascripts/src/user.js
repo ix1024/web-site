@@ -1,7 +1,8 @@
-define(['jquery'], function($) {
+define(['jquery', 'my-utils'], function($, myUtils) {
 	// if (top !== window) {
 	// 	top.location.reload();
 	// }
+
 	$('#loginSubmit').on('click', function() {
 		$.ajax({
 			url: 'get-login',
@@ -11,7 +12,7 @@ define(['jquery'], function($) {
 			},
 			success: function(data) {
 				if (data && data.status === '00000') {
-					window.location.href = '/';
+					window.location.href = myUtils.getQueryValue('backUrl') || '/';
 				} else {
 
 				}

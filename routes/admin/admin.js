@@ -14,7 +14,7 @@ var findArticle = function(callback) {
 };
 router.all('*', function(req, res, next) {
 
-
+	utils.log(req.url,'yellow');
 	if (req.session.user) {
 		utils.log('已经登录', 'green');
 	} else {
@@ -23,7 +23,7 @@ router.all('*', function(req, res, next) {
 	if (req.session.user) {
 		next();
 	} else {
-		res.redirect('/login');
+		res.redirect('/login?backUrl='+encodeURI(req.originalUrl));
 	}
 });
 

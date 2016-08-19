@@ -83,8 +83,12 @@ define([
 					validate: true
 				})) {
 				Comments.create(comment);
+				this.clearContent();
 			}
 
+		},
+		clearContent: function() {
+			$(this.el).find('[name=content]').html('').val('');
 		},
 		addOne: function(comment) {
 			var view = new CommentView({
