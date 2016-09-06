@@ -6,13 +6,13 @@
 		
 	</head>
 	<body>
-		<form action="#" id="myForm" method="post"  enctype="multipart/form-data" >
-			<!-- 	<p>
+		<!--<form action="#" id="myForm" method="post"  enctype="multipart/form-data" >
+				<p>
 					<input type="text" name="name"/>
 			</p>
 			<p>
 					<input type="text" name="age"/>
-			</p> -->
+			</p>
 			<p>
 				<input type="file" name="avatar" id="">
 			</p>
@@ -22,8 +22,52 @@
 		<progress value="0" max="100" id="progress"></progress>
 		<span value="0" max="100" id="progressText"></span>
 	</form>
+	 <script async src="//jsfiddle.net/kingwell/1bxrcp09/embed/"></script>
+	<iframe width="100%" height="300" src="//jsfiddle.net/kingwell/1bxrcp09/2/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+	
+	<script src="/javascripts/src/demo.js"></script> -->
+	<script src="http://static.huizecdn.com/js/libs/zepto/1.1.6/zepto.min.js"></script>
 	<script src="/javascripts/src/lib/require.js"></script>
 	<script src="/javascripts/src/config/requirejs-config.js"></script>
-	<script src="/javascripts/src/demo.js"></script>
+	<a href="#/download/user/images/hey.gif">download gif</a>
+	<a href="#/dashboard/graph">Load Route/Action View</a>
+	<a href="#/posts/graph">ssssLoad Route/Action View</a>
+	<script>
+
+		require(['jquery', 'backbone'], function($, Backbone) {
+			var AppRouter = Backbone.Router.extend({
+
+				routes: {
+					"posts/:id": "getPost",
+					//下面对应的链接为<a href="#/download/user/images/hey.gif">download gif</a>
+					"download/*path": "downloadFile",
+					//下面对应的链接为<a href="#/dashboard/graph">Load Route/Action View</a>
+					":route/:action": "loadView",
+					"*actions": "defaultRoute"
+				},
+
+				getPost: function(id) {
+					alert(id+2015);
+				},
+
+				defaultRoute: function(actions) {
+					alert(actions);
+				},
+
+				downloadFile: function(path) {
+					alert(path); // user/images/hey.gif
+				},
+
+				loadView: function(route, action) {
+					 this.navigate("/posts/" + 404, {trigger: true, replace: false});
+					//alert(route + "_" + action); // dashboard_graph
+				}
+
+			});
+
+			var app_router = new AppRouter;
+			Backbone.history.start();
+		});
+	</script>
 </body>
 </html>
